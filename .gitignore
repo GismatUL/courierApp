@@ -1,0 +1,12 @@
+# This repository publishes only the frontend. Everything else at the root
+# (CLAUDE.md, .claude/, the ai-engineering submodule, the Figma export) stays local.
+/*
+!/frontend/
+!/.gitignore
+!/README.md
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
