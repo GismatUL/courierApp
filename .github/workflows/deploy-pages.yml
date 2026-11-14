@@ -1,0 +1,78 @@
+name: Deploy frontend to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: frontend
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+          cache-dependency-path: frontend/package-lock.json
+
+      - name: Configure Pages
+        id: pages
+        uses: actions/configure-pages@v5
+
+      # GitHub Pages serves this repo from /<repo>/ (e.g. /courierApp), so:
+      # 1) switch Next.js to a static export with that base path
+      # 2) prefix the hard-coded /figma/... asset URLs with the base path
+      - name: Prepare static export for Pages
+        env:
+          BASE_PATH: ${{ steps.pages.outputs.base_path }}
+        run: |
+          cat > next.config.mjs <<CFG
+          /** @type {import('next').NextConfig} */
+          const nextConfig = {
+            reactStrictMode: true,
+            output: "export",
+            trailingSlash: true,
+            basePath: "${BASE_PATH}",
+            images: { unoptimized: true },
+          };
+          export default nextConfig;
+          CFG
+          grep -rlE '["`]/figma/' app components | while read -r f; do
+            sed -i -E "s#([\"\`])/figma/#\1${BASE_PATH}/figma/#g" "$f"
+          done
+
+      - run: npm ci
+
+      - run: npm run build
+        env:
+          NEXT_TELEMETRY_DISABLED: 1
+
+      - run: touch out/.nojekyll
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: frontend/out
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
