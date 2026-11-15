@@ -53,14 +53,14 @@ export default function DashboardPage() {
     <div className="mx-auto flex min-h-screen max-w-page flex-col gap-6 p-4 leading-[1.4] lg:flex-row lg:items-start lg:p-6">
       {/* Dashboard navigation 2:21558 */}
       <nav className="flex shrink-0 flex-col gap-5 rounded-3xl bg-night p-6 lg:sticky lg:top-6 lg:h-[calc(100vh-48px)] lg:w-[232px]">
-        <Link href="/" className="text-[26px] font-bold text-white">Yetir↗</Link>
+        <Link href="/" className="text-[26px] font-bold text-white">Kuryer.net↗</Link>
         <p className="text-[11px] font-semibold text-[#98B2D4]">BİZNES KABİNETİ</p>
         {NAV.map(([label, href], i) => (
           <Link key={href} href={href} className={clsx("whitespace-pre rounded-xl p-3 text-[15px] font-medium text-white", i === 0 ? "bg-brand-500" : "hover:bg-card/10")}>
             {label}
           </Link>
         ))}
-        <p className="text-[13px] text-[#B9C5D7]">24/7 dəstək<br /><a href="tel:+994120000000">+994 12 000 00 00</a></p>
+        <p className="text-[13px] text-[#B9C5D7]">09:00–19:00 dəstək<br /><a href="tel:+994124000000">(+994 12) 400 00 00</a></p>
       </nav>
 
       {/* Dashboard body 2:21576 */}

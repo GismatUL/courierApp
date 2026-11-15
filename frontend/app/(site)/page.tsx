@@ -1,8 +1,8 @@
 import Link from "next/link";
 import clsx from "clsx";
-import { HeroBlock } from "@/components/HeroBlock";
+import { CourierPhoto, HeroBlock } from "@/components/HeroBlock";
 import { Faq } from "@/components/Faq";
-import { HeroIllustration, StoreBadges } from "@/components/Illustrations";
+import { StoreBadges } from "@/components/Illustrations";
 import { PhoneTracking, PhoneTrackingMobile } from "@/components/PhoneTracking";
 import { FigmaIcon, LinkButton } from "@/components/ui";
 import { Band, BusinessLeadSection, Desk, Eyebrow, H2, IntegrationsSection, Mob } from "@/components/sections";
@@ -139,19 +139,19 @@ export default function Home() {
           <h2 className="text-[30px] font-bold text-ink">Alıcılarınız da<br />rahat olsun.</h2>
           <p className="text-base text-muted">Brendli SMS, canlı izləmə linki və asan vaxt dəyişmə.</p>
           <div className="flex flex-col gap-4 rounded-[20px] bg-card p-5">
-            <p className="whitespace-pre text-xs font-semibold text-muted">{"Yetir  ·  İndi"}</p>
+            <p className="whitespace-pre text-xs font-semibold text-muted">{"Kuryer.net  ·  İndi"}</p>
             <p className="text-[17px] font-medium text-ink">Salam, Aysel! Bağlamanız 14:42-də gələcək. İzləyin və ya vaxtı dəyişin.</p>
-            <Link href="/tracking" className="whitespace-pre text-sm font-semibold text-link">{"yetir.az/izle/AZ2048  ↗"}</Link>
+            <Link href="/tracking" className="whitespace-pre text-sm font-semibold text-link">{"kuryer.net/izle/AZ2048  ↗"}</Link>
           </div>
         </Mob>
         <Desk>
           <div className="flex flex-row items-start gap-14">
             <div className="flex w-[600px] min-w-0 shrink flex-col gap-4 rounded-3xl bg-card p-8">
-              <p className="whitespace-pre text-xs font-bold text-muted">{"MESAJLAR  ·  Yetir"}</p>
+              <p className="whitespace-pre text-xs font-bold text-muted">{"MESAJLAR  ·  Kuryer.net"}</p>
               <div className="flex flex-col gap-4 rounded-3xl bg-brand-surface p-6 text-ink">
                 <p className="text-[22px] font-bold">Bağlamanız yoldadır! 📦</p>
-                <p className="text-base">Salam, Aysel! Yetir kuryeri təxminən 14:42-də gələcək. Canlı izləyin və ya vaxtı dəyişin.</p>
-                <Link href="/tracking" className="text-[15px] font-semibold text-link">yetir.az/izle/AZ2048&nbsp;&nbsp;↗</Link>
+                <p className="text-base">Salam, Aysel! Kuryer.net kuryeri təxminən 14:42-də gələcək. Canlı izləyin və ya vaxtı dəyişin.</p>
+                <Link href="/tracking" className="text-[15px] font-semibold text-link">kuryer.net/izle/AZ2048&nbsp;&nbsp;↗</Link>
               </div>
             </div>
             <div className="flex w-[656px] min-w-0 shrink flex-col gap-4">
@@ -190,7 +190,7 @@ export default function Home() {
       <Band tone="blue" className="lg:py-16">
         <div className="flex flex-col gap-6 lg:flex-row lg:items-start lg:gap-[72px]">
           <div className="flex flex-col gap-6 leading-[1.4] text-white lg:w-[700px] lg:min-w-0 lg:shrink lg:gap-4">
-            <Desk><p className="text-xs font-bold text-[#D6E8FF]">BÜTÜN ÇATDIRILMALAR CİBİNİZDƏ</p></Desk>
+            <Desk><p className="text-xs font-bold text-[#FCEBEC]">BÜTÜN ÇATDIRILMALAR CİBİNİZDƏ</p></Desk>
             <h2 className="text-[34px] font-bold lg:text-[48px]">Bir tətbiq.<br />Min bir rahatlıq.</h2>
             <p className="text-base lg:text-lg">
               <span className="lg:hidden">Sifariş verin, izləyin, təkrar göndərin.</span>
@@ -223,12 +223,12 @@ export default function Home() {
           <div className="flex flex-col items-start gap-6 leading-[1.4] lg:w-[650px] lg:min-w-0 lg:shrink lg:gap-4">
             <Desk><Eyebrow>ŞƏHƏRİ TANIYIRSAN? QAZANMAĞA BAŞLA.</Eyebrow></Desk>
             <h2 className="text-[34px] font-bold text-ink lg:text-[44px]">Sənin vaxtın.<br />Sənin qazancın.</h2>
-            <HeroIllustration set="courier" className="w-full max-w-[350px] lg:hidden" />
+            <CourierPhoto className="h-[218.75px] w-full max-w-[350px] lg:hidden" />
             <p className="text-base text-muted lg:text-lg">10 dəqiqəyə onlayn qeydiyyat. Sərbəst qrafik. Gündəlik qazanc.</p>
             <LinkButton href="/courier" variant="accent" size="lg" className="w-full lg:max-w-[300px]">Qazanmağa başla&nbsp;&nbsp;↗</LinkButton>
           </div>
           <div className="hidden lg:block lg:h-[330px] lg:w-[606px] lg:min-w-0 lg:shrink">
-            <HeroIllustration set="courier" className="w-full max-w-[455px] lg:ml-[65px]" />
+            <CourierPhoto className="h-[284.375px] w-full max-w-[455px] lg:ml-[65px]" />
           </div>
         </div>
       </Band>

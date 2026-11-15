@@ -44,7 +44,7 @@ function PointCard({ index, point, onChange, onRemove }: { index: number; point:
   return (
     <div className="flex flex-col gap-5 rounded-3xl bg-surface p-5">
       <div className="flex items-start gap-3">
-        <span className={clsx("w-11 shrink-0 rounded-4xl p-[14px] text-center text-[15px] font-semibold", pickup ? "bg-brand-500 text-white" : "bg-amber-500 text-night")}>
+        <span className={clsx("w-11 shrink-0 rounded-4xl p-[14px] text-center text-[15px] font-semibold", pickup ? "bg-brand-500 text-white" : "bg-amber-500 text-white")}>
           {pickup ? "A" : String.fromCharCode(65 + index)}
         </span>
         <h3 className="flex-1 text-xl font-bold text-ink">{pickup ? "Götürülmə nöqtəsi" : "Çatdırılma nöqtəsi"}</h3>
@@ -138,7 +138,7 @@ export default function OrderPage() {
         </p>
         <div className="flex flex-col gap-4 md:flex-row md:items-start">
           <h1 className="text-[32px] font-bold text-ink md:w-[850px] md:shrink-0 md:text-[40px]">Yeni çatdırılma sifarişi</h1>
-          <a href="tel:+994120000000" className="whitespace-pre text-sm font-semibold text-link">{"Sualınız var?  24/7 dəstək  ↗"}</a>
+          <a href="tel:+994124000000" className="whitespace-pre text-sm font-semibold text-link">{"Sualınız var?  09:00–19:00 dəstək  ↗"}</a>
         </div>
         <ol className="grid gap-4 md:grid-cols-3 md:items-start">
           {["Marşrut və bağlama", "Ödəniş", "Təsdiq"].map((s, i) => (

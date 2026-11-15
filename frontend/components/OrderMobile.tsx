@@ -54,7 +54,7 @@ export function OrderMobile(p: OrderMobileProps) {
       <header className="sticky top-0 z-40 flex flex-col gap-6 bg-card px-5 py-6 leading-[1.4]">
         <div className="flex items-start gap-4">
           <Link href="/" className="w-[280px] whitespace-pre text-xl font-bold">{"←  Yeni sifariş"}</Link>
-          <a href="tel:+994120000000" className="text-xs font-semibold text-link">Kömək</a>
+          <a href="tel:+994124000000" className="text-xs font-semibold text-link">Kömək</a>
         </div>
         <p className="whitespace-pre text-xs font-semibold text-link">{"1 Marşrut    →    2 Ödəniş    →    3 Təsdiq"}</p>
       </header>

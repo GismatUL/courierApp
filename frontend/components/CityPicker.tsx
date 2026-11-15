@@ -41,15 +41,15 @@ export function CityPicker({ variant, className }: { variant: "desktop" | "mobil
       aria-current={name === city}
       onClick={() => choose(name)}
       className={clsx(
-        "rounded-[10px] p-3 text-left text-base leading-[1.4] transition-colors hover:bg-[#EDF5FF] hover:text-link dark:hover:bg-brand-surface",
-        name === city ? "font-semibold text-link" : "text-[#35445A] dark:text-ink",
+        "rounded-[10px] p-3 text-left text-base leading-[1.4] transition-colors hover:bg-[#FEF7F7] hover:text-link dark:hover:bg-brand-surface",
+        name === city ? "font-semibold text-link" : "text-[#242325] dark:text-ink",
       )}
     >
       {name}
     </button>
   );
   const grid = "grid grid-cols-1 gap-x-[42px] gap-y-1 sm:grid-cols-2 md:grid-cols-3";
-  const groupTitle = "mb-1 mt-6 px-3 text-xs font-semibold uppercase tracking-wide text-[#66758B] dark:text-muted";
+  const groupTitle = "mb-1 mt-6 px-3 text-xs font-semibold uppercase tracking-wide text-[#686468] dark:text-muted";
 
   return (
     <>
@@ -61,7 +61,7 @@ export function CityPicker({ variant, className }: { variant: "desktop" | "mobil
         onClick={() => setOpen(true)}
         className={clsx(
           variant === "desktop"
-            ? "flex h-[42px] w-full items-center justify-between rounded-xl border border-transparent px-2.5 text-ink transition-colors hover:border-[#D8E2F0] hover:bg-[#F7F9FC] dark:hover:border-line dark:hover:bg-surface"
+            ? "flex h-[42px] w-full items-center justify-between rounded-xl border border-transparent px-2.5 text-ink transition-colors hover:border-[#E6E1E1] hover:bg-[#F7F6F5] dark:hover:border-line dark:hover:bg-surface"
             : "text-left text-sm font-semibold text-ink",
           className,
         )}
@@ -69,7 +69,7 @@ export function CityPicker({ variant, className }: { variant: "desktop" | "mobil
         {variant === "desktop" ? (
           <>
             <span className="flex min-w-0 items-center gap-[7px] text-sm font-semibold"><span className="text-link" aria-hidden>⌖</span><span className="truncate">{city}</span></span>
-            <Chevron className="text-[#52647D] dark:text-muted" />
+            <Chevron className="text-[#686468] dark:text-muted" />
           </>
         ) : (
           <span className="flex items-center gap-1">{city}<Chevron /></span>
@@ -83,23 +83,23 @@ export function CityPicker({ variant, className }: { variant: "desktop" | "mobil
             role="dialog"
             aria-modal="true"
             aria-labelledby={titleId}
-            className="relative z-[1] max-h-[88vh] w-full max-w-[760px] overflow-y-auto rounded-[20px] bg-card px-[38px] pb-[38px] pt-8 shadow-[0_28px_80px_rgba(15,23,42,0.28)]"
+            className="relative z-[1] max-h-[88vh] w-full max-w-[760px] overflow-y-auto rounded-[20px] bg-card px-[38px] pb-[38px] pt-8 shadow-[0_28px_80px_rgba(36,35,37,0.28)]"
           >
             <div className="mb-2.5 flex items-start justify-between gap-6">
               <div>
                 <h2 id={titleId} className="text-[32px] font-bold leading-[1.25] text-ink">Çatdırılma bölgəniz</h2>
-                <p className="mt-2 text-sm leading-[1.5] text-[#66758B] dark:text-muted">Sifariş vermək istədiyiniz şəhəri seçin.</p>
+                <p className="mt-2 text-sm leading-[1.5] text-[#686468] dark:text-muted">Sifariş vermək istədiyiniz şəhəri seçin.</p>
               </div>
               <button
                 type="button"
                 aria-label="Bağla"
                 onClick={close}
-                className="-mr-2 -mt-2 flex size-[42px] items-center justify-center rounded-full text-[28px] font-light text-[#66758B] transition-colors hover:bg-[#F1F5F9] hover:text-ink dark:text-muted dark:hover:bg-surface"
+                className="-mr-2 -mt-2 flex size-[42px] items-center justify-center rounded-full text-[28px] font-light text-[#686468] transition-colors hover:bg-[#F7F6F5] hover:text-ink dark:text-muted dark:hover:bg-surface"
               >
                 ×
               </button>
             </div>
-            <div className="my-[22px] h-px bg-[#E5EAF1] dark:bg-line" />
+            <div className="my-[22px] h-px bg-[#E6E1E1] dark:bg-line" />
             <label className="mb-4 flex items-center gap-2 rounded-xl border border-line bg-card px-4 py-3 focus-within:border-brand-500">
               <span aria-hidden className="text-muted">⌕</span>
               <input

@@ -23,7 +23,7 @@ export function Header() {
   const [open, setOpen] = useState(false);
   const active = activeSection(usePathname());
   const current = (href: string) => (active === href ? { "aria-current": "page" as const } : {});
-  // The yellow CTA stays primary on the home and order pages; when another header item is the
+  // The red CTA stays primary on the home and order pages; when another header item is the
   // current page it steps back to the secondary style so it doesn't read as the active item.
   const ctaVariant = active && active !== "/order" ? "soft" : "accent";
   const nav = [
@@ -46,10 +46,10 @@ export function Header() {
     </div>
   );
   return (
-    <header className="sticky top-0 z-40 bg-card lg:border-b lg:border-[#E8EDF3] lg:shadow-[0_3px_16px_rgba(15,23,42,0.04)] dark:lg:border-line">
-      {/* Desktop — Figma "Header / Desktop" 2:20450 (updated): 1440 × 94, px 64, py 18, gap 22, bottom border + soft shadow */}
-      <div className="mx-auto hidden max-w-page items-center gap-4 px-8 py-[18px] lg:flex xl:gap-[22px] xl:px-16">
-        <div className="shrink-0 xl:w-[158px]"><Logo /></div>
+    <header className="sticky top-0 z-40 bg-card">
+      {/* Desktop — Figma "Header / Desktop" 2:20450: 1440 × 101, px 64, py 22, gap 22, 158-wide logo */}
+      <div className="mx-auto hidden max-w-page items-center gap-4 px-8 py-[22px] lg:flex xl:gap-[22px] xl:px-16">
+        <Logo className="w-[130px] xl:w-[158px]" />
         <div className="w-[108px] shrink-0"><CityPicker variant="desktop" /></div>
         <nav className="flex min-w-0 flex-1 items-center gap-4 xl:gap-5">
           {nav.map((n) => (
@@ -67,7 +67,7 @@ export function Header() {
       {/* Mobile — Figma "Header / Mobile" 2:22452: px 20, py 18, two rows 24px apart */}
       <div className="flex flex-col gap-6 px-5 py-[18px] leading-[1.4] lg:hidden">
         <div className="flex items-center gap-4">
-          <Logo className="w-[164px] shrink-0 !text-[23px] !leading-[1.4]" />
+          <Logo className="w-[164px]" />
           <CityPicker variant="mobile" className="w-[94px] shrink-0" />
           <button type="button" className="w-[60px] text-left text-2xl font-medium text-ink" onClick={() => setOpen(!open)} aria-label="Menyu" aria-expanded={open}>
             {open ? "✕" : "☰"}

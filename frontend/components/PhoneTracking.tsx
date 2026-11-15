@@ -44,7 +44,7 @@ export function PhoneTrackingMobile({ className }: { className?: string }) {
         <BakuMap width={260} />
         <p className="text-xl font-bold text-brand-500">12 dəqiqəyə qapınızda</p>
         <p className="whitespace-pre text-[13px] font-medium">{"✓  Kuryer təyin edildi\n✓  Götürüldü\n●  Yoldadır\n○  Çatdırıldı"}</p>
-        <span className="rounded-xl bg-[#EBF3FF] p-[18px] text-center text-[15px] font-semibold">Kuryerlə əlaqə</span>
+        <span className="rounded-xl bg-[#FEF7F7] p-[18px] text-center text-[15px] font-semibold">Kuryerlə əlaqə</span>
       </div>
     </div>
   );
@@ -57,7 +57,7 @@ export function PhoneTracking({ className, width = 290 }: { className?: string; 
       <div className="flex flex-col gap-4 overflow-hidden rounded-[28px] bg-white p-[14px] text-night">
         <p className="whitespace-pre text-[11px] font-semibold leading-[1.4]">{"9:41                     ● ▰"}</p>
         <p className="text-lg font-bold leading-[1.4]">Sifarişiniz yoldadır</p>
-        <p className="text-[11px] leading-[1.4] text-[#627087]">#AZ-2048 · təxmini 14:42</p>
+        <p className="text-[11px] leading-[1.4] text-[#686468]">#AZ-2048 · təxmini 14:42</p>
         <LiveRouteMap width={width === 290 ? 244 : 214} />
         <p className="text-[19px] font-bold leading-[1.4] text-brand-500">12 dəqiqəyə qapınızda</p>
         <ul className="text-xs font-medium leading-[1.4]">
@@ -66,7 +66,7 @@ export function PhoneTracking({ className, width = 290 }: { className?: string; 
           <li>● Yoldadır</li>
           <li>○ Çatdırıldı</li>
         </ul>
-        <span className="rounded-xl bg-[#EBF3FF] p-[18px] text-center text-[15px] font-semibold leading-[1.4]">Kuryerlə əlaqə</span>
+        <span className="rounded-xl bg-[#FEF7F7] p-[18px] text-center text-[15px] font-semibold leading-[1.4]">Kuryerlə əlaqə</span>
       </div>
     </div>
   );

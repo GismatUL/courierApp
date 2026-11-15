@@ -3,35 +3,29 @@ import { createContext, useContext, useEffect, useState, type ReactNode } from "
 
 export type Lang = "az" | "ru" | "en";
 
-/** Azerbaijani locative (-da / -də) by vowel harmony on the last vowel: Bakıda, Gəncədə, Şəkidə. */
-export function locative(place: string): string {
-  const last = [...place.toLocaleLowerCase("az")].reverse().find((ch) => "aıoueəiöü".includes(ch));
-  return place + (last && "aıou".includes(last) ? "da" : "də");
-}
-
 const dict = {
   az: {
     business: "Biznes üçün", courier: "Kuryer ol", pricing: "Tariflər", help: "Kömək",
     login: "Daxil ol", order: "Sifariş et",
-    heroTitle: (c: string) => `${locative(c)} kuryer\nçatdırılması —\n30 dəqiqədən`,
+    heroTitle: "Sevgi ilə\nçatdırırıq.",
     heroSub: "Bir sənəddən böyük bağlamaya qədər.\nİndi göndərin, bu gün ünvanına çatsın.",
-    calc: "Qiyməti hesabla", from: "HARADAN", to: "HARAYA", vehicle: "NƏQLİYYAT",
+    calc: "Qiyməti hesabla", calcDelivery: "Çatdırılmanı hesabla", from: "HARADAN", to: "HARAYA", vehicle: "NƏQLİYYAT",
     forBusiness: "Biznes üçün xüsusi şərtlər",
   },
   ru: {
     business: "Для бизнеса", courier: "Стать курьером", pricing: "Тарифы", help: "Помощь",
     login: "Войти", order: "Заказать",
-    heroTitle: (c: string) => `Курьерская доставка: ${c} — от 30 минут`,
+    heroTitle: "Доставляем\nс любовью.",
     heroSub: "От документов до крупногабаритных грузов. В любой город Азербайджана в тот же день.",
-    calc: "Рассчитать", from: "Откуда", to: "Куда", vehicle: "Транспорт",
+    calc: "Рассчитать", calcDelivery: "Рассчитать доставку", from: "Откуда", to: "Куда", vehicle: "Транспорт",
     forBusiness: "Особые условия для бизнеса",
   },
   en: {
     business: "For business", courier: "Become a courier", pricing: "Pricing", help: "Help",
     login: "Log in", order: "Order delivery",
-    heroTitle: (c: string) => `Courier delivery in ${c} — from 30 minutes`,
+    heroTitle: "Delivered\nwith love.",
     heroSub: "From documents to large cargo. Anywhere in Azerbaijan, delivered the same day.",
-    calc: "Calculate price", from: "From", to: "To", vehicle: "Vehicle",
+    calc: "Calculate price", calcDelivery: "Calculate delivery", from: "From", to: "To", vehicle: "Vehicle",
     forBusiness: "Special terms for business",
   },
 };

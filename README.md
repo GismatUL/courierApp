@@ -1,6 +1,6 @@
-# courierApp — Yetir
+# courierApp — Kuryer.net
 
-On-demand courier delivery platform for Azerbaijan (`yetir.az`).
+On-demand courier delivery platform for Azerbaijan (`kuryer.net`).
 
 | Part | Folder | Stack |
 |---|---|---|

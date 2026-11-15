@@ -19,10 +19,10 @@ export function BoxField({ label, children, className = "", normalCase }: { labe
   );
 }
 const fieldInput = "w-full bg-transparent text-[15px] font-semibold text-ink outline-none placeholder:text-ink";
-/** Updated hero inputs: 8px label gap and a hover border on desktop. */
-const heroField = "transition-colors lg:gap-2 lg:hover:border-[#9FB4CF]";
+const heroField = "transition-colors hover:border-[#C9C1C1]";
+const intro = "Ünvanları daxil edin, qiyməti öyrənin";
 
-/** Figma "Quick price calculator" (2:20459). */
+/** Figma "Quick price calculator" — desktop 2:20459 (576 wide, p 32, radius 24, gap 24) / mobile 2:22554 (p 20, radius 20, gap 16). */
 export function PriceCalculator() {
   const { t } = useI18n();
   const [from, setFrom] = useState("");
@@ -37,13 +37,12 @@ export function PriceCalculator() {
   };
 
   return (
-    // Desktop 2:20459 (updated: 560-wide card, p 28, radius 24, gap 18, stacked fields) / mobile 2:22554 (p 20, radius 20, promo at the bottom).
-    <form onSubmit={calc} className="flex flex-col gap-4 rounded-[20px] bg-card p-5 lg:gap-[18px] lg:rounded-3xl lg:p-7 lg:shadow-[0px_20px_55px_rgba(13,38,77,0.14)]">
-      <div className="flex flex-col gap-4 lg:gap-[14px]">
-        <h2 className="text-2xl font-bold leading-[1.4] text-ink lg:text-[23px] lg:leading-[1.35]">Hara çatdıraq?</h2>
-        <p className="hidden rounded-[10px] bg-amber-surface p-2.5 text-sm font-semibold leading-[1.4] text-ink lg:block">İlk sifarişə −40% · kod: [CODE]</p>
+    <form onSubmit={calc} className="flex flex-col gap-4 rounded-[20px] bg-card p-5 lg:gap-6 lg:rounded-3xl lg:p-8 lg:shadow-[0px_12px_40px_rgba(89,26,31,0.06)]">
+      <div className="flex flex-col gap-4 lg:gap-3">
+        <h2 className="text-2xl font-bold leading-[1.4] text-ink lg:text-3xl lg:leading-[1.35]">Hara çatdıraq?</h2>
+        <p className="hidden rounded-[10px] bg-amber-surface p-2.5 text-sm font-semibold leading-[1.4] text-muted lg:block">{intro}</p>
       </div>
-      <div className="flex flex-col gap-4 lg:gap-[14px]">
+      <div className="flex flex-col gap-4 lg:gap-3">
         <BoxField label={t.from} className={heroField}>
           <input className={fieldInput} value={from} onChange={(e) => setFrom(e.target.value)} placeholder="Götürülmə ünvanı" required />
         </BoxField>
@@ -57,12 +56,14 @@ export function PriceCalculator() {
             </select>
           </SelectChevron>
         </BoxField>
-        <button className={btn("accent", "lg", "w-full lg:shadow-[0_8px_18px_rgba(255,184,0,0.22)] lg:hover:bg-[#F2AD00]")}>{t.calc}&nbsp;&nbsp;→</button>
+        <button className={btn("accent", "lg", "w-full")}>
+          <span className="lg:hidden">{t.calc}</span><span className="hidden lg:inline">{t.calcDelivery}</span>&nbsp;&nbsp;→
+        </button>
       </div>
-      <div className="flex flex-col gap-4 lg:gap-2.5">
+      <div className="flex flex-col gap-4 lg:gap-3">
         <p className="text-sm font-semibold leading-[1.4] text-ink lg:text-[13px] lg:font-normal lg:leading-[1.35] lg:text-muted">
           {price === null ? (
-            <>Təxmini 8,40 ₼-dən<span className="hidden lg:inline"> · yekun qiymət ünvana görə hesablanır</span></>
+            <><span className="lg:hidden">Qiymət</span><span className="hidden lg:inline">Yekun qiymət</span> marşruta görə hesablanır</>
           ) : (
             <>
               Təxmini qiymət: <b className="text-ink">{azn(price)}</b> ·{" "}
@@ -72,7 +73,7 @@ export function PriceCalculator() {
         </p>
         <Link href="/business" className="hidden text-sm font-semibold leading-[1.4] text-link lg:block">{t.forBusiness}&nbsp;&nbsp;↗</Link>
       </div>
-      <p className="rounded-[20px] bg-amber-surface p-[14px] text-sm font-semibold leading-[1.4] text-ink lg:hidden">İlk sifarişə −40%<br />Promokod: [CODE]</p>
+      <p className="rounded-[20px] bg-amber-surface p-[14px] text-sm font-semibold leading-[1.4] text-muted lg:hidden">{intro}</p>
     </form>
   );
 }

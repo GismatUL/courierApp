@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { StoreBadges } from "./Illustrations";
 import { Container } from "./ui";
+import { Logo } from "./Logo";
 
 const cols: { title: string; links: [string, string][] }[] = [
   { title: "Xidmətlər", links: [["Biznes üçün", "/business"], ["Mağazalar üçün", "/business"], ["Tariflər", "/pricing"], ["API", "#"], ["Kuryer ol", "/courier"]] },
@@ -32,9 +33,9 @@ export function Footer() {
     <footer className="bg-night text-white">
       {/* Mobile — Figma 2:20293: px 20, py 40, gap 24 */}
       <Container className="flex flex-col gap-6 py-10 leading-[1.4] lg:hidden">
-        <Link href="/" className="text-[30px] font-bold">Yetir↗</Link>
+        <Logo className="w-[174px]" />
         <p className="text-[15px] text-[#B9C5D7]">Azərbaycan boyu, qapıdan qapıya.</p>
-        <p className="text-[15px] font-medium">Dəstək 24/7<br /><a href="tel:+994120000000">+994 12 000 00 00</a><br /><a href="mailto:support@yetir.az">support@yetir.az</a></p>
+        <p className="text-[15px] font-medium">Dəstək 24/7<br /><a href="tel:+994124000000">(+994 12) 400 00 00</a><br /><a href="mailto:info@kuryer.net">info@kuryer.net</a></p>
         <div className="grid grid-cols-2 gap-4 text-sm text-[#B9C5D7]">
           {MOBILE_COLS.map((col, i) => (
             <ul key={i}>{col.map(([l, href]) => <li key={l}><Link href={href} className="hover:text-white">{l}</Link></li>)}</ul>
@@ -44,19 +45,19 @@ export function Footer() {
         <p className="whitespace-pre text-sm font-medium">{"  App Store        ▷ Google Play"}</p>
         <StoreBadges className="flex-col gap-6" />
         <SocialIcons />
-        <p className="text-sm text-[#B9C5D7]">© 2026 Yetir<br />[Hüquqi şəxsin adı] MMC<br />VÖEN: [əlavə ediləcək]</p>
+        <p className="text-[11px] text-[#B9C5D7]">© 2026 Kuryer.net<br />info@kuryer.net<br />(+994 12) 400 00 00<br />İş saatları: 09:00–19:00</p>
       </Container>
 
       {/* Desktop — Figma 2:21006 */}
       <Container className="hidden flex-col gap-8 py-14 lg:flex">
         <div className="grid gap-10 leading-[1.4] md:grid-cols-2 lg:grid-cols-[390fr_267fr_267fr_267fr]">
           <div className="flex flex-col gap-4">
-            <Link href="/" className="text-[32px] font-bold">Yetir↗</Link>
+            <Logo className="w-[174px]" />
             <p className="text-[15px] text-[#B9C5D7]">Azərbaycan boyu, qapıdan qapıya.</p>
             <p className="text-[15px] font-medium">
-              Dəstək: 24/7<br />
-              <a href="tel:+994120000000">+994 12 000 00 00</a><br />
-              <a href="mailto:support@yetir.az">support@yetir.az</a>
+              Dəstək: 09:00–19:00<br />
+              <a href="tel:+994124000000">(+994 12) 400 00 00</a><br />
+              <a href="mailto:info@kuryer.net">info@kuryer.net</a>
             </p>
           </div>
           {cols.map((c) => (
@@ -69,13 +70,13 @@ export function Footer() {
           ))}
         </div>
         <p className="whitespace-pre-wrap text-sm font-medium leading-[1.4]">
-          {SOCIAL.map((s, i) => <span key={s}>{i > 0 && "   /   "}<a href="#" className="hover:text-amber-500">{s}</a></span>)}
+          {SOCIAL.map((s, i) => <span key={s}>{i > 0 && "   /   "}<a href="#" className="hover:text-[#FF9EA2]">{s}</a></span>)}
         </p>
         {/* Copyright on the left, store badges on the right of the same row (changed on request from the frame's stacked layout). */}
         <div className="flex items-center justify-between gap-8">
           <p className="whitespace-pre-wrap text-xs leading-[1.4] text-[#B9C5D7]">
-            {"© 2026 Yetir  ·  [Hüquqi şəxsin adı] MMC  ·  VÖEN: [əlavə ediləcək]"}<br />
-            Nümunə əlaqə məlumatları. Xidmət şərtləri və şəhər üzrə mövcudluq təsdiqlənməlidir.
+            {"© 2026 Kuryer.net  ·  info@kuryer.net  ·  (+994 12) 400 00 00"}<br />
+            İş saatları: 09:00–19:00
           </p>
           <StoreBadges className="shrink-0 flex-nowrap" />
         </div>

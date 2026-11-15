@@ -1,4 +1,4 @@
-# Yetir — Courier delivery frontend (Next.js)
+# Kuryer.net — Courier delivery frontend (Next.js)
 
 Next.js 14 (App Router) + TypeScript + Tailwind CSS frontend for an on-demand courier platform in Azerbaijan, built pixel-perfect from the Figma design (Inter; blue `#0A6CFF` + amber `#FFB800`). Desktop follows the 1440 frames, below 1024px the 390 mobile frames. Pages live in the `app/(site)` route group (site header/footer); `/dashboard` and `/design-system` have their own layout.
 
@@ -31,4 +31,4 @@ Dark mode (Figma frame 14 colors): the ☾/☀ toggle in the header switches it 
 - `app/(site)/tracking/page.tsx` — simulated ETA countdown; replace with WebSocket/polling (e.g. Laravel Reverb / Pusher).
 - Forms (`LeadForm`, courier signup, login/OTP, order, dashboard filters) only update local state — wire them to your API.
 
-Brand: **Yetir** (domain `yetir.az`). Prices, metrics, partner names, legal details (company name, VÖEN) and the promo `[CODE]` are still placeholders.
+Brand: **Kuryer.net** (domain `kuryer.net`). Prices, metrics, partner names, legal details (company name, VÖEN) and the promo `[CODE]` are still placeholders.

@@ -8,25 +8,12 @@ const config: Config = {
     fontSize: { xs: "12px", sm: "14px", base: "16px", lg: "18px", xl: "20px", "2xl": "24px", "3xl": "30px", "4xl": "36px", "5xl": "48px", "6xl": "60px", "7xl": "72px" },
     extend: {
       colors: {
-        brand: {
-          50: "#EEF5FF",
-          100: "#D9E8FF",
-          200: "#B3D1FF",
-          400: "#4D94FF",
-          500: "#0A6CFF",
-          600: "#0057D9",
-          700: "#0045AD",
-        },
-        amber: {
-          50: "#FFF8E5",
-          100: "#FFEFC2",
-          400: "#FFC633",
-          500: "#FFB800",
-          600: "#E0A100",
-        },
+        // Kuryer.net red (Figma color/blue = color/amber = #C72127); the "amber" accent is the same red.
+        brand: { 50: "#FEF7F7", 100: "#FCEBEC", 200: "#F5C2C4", 400: "#E0565B", 500: "#C72127", 600: "#A91C21", 700: "#8C171B" },
+        amber: { 50: "#FEF7F7", 100: "#FCEBEC", 400: "#E0565B", 500: "#C72127", 600: "#A91C21" },
         // Semantic tokens from Figma variables; light/dark values live in app/globals.css.
         ink: "rgb(var(--ink) / <alpha-value>)",
-        night: "#0F172A",
+        night: "#242325", // Figma background/dark
         card: "rgb(var(--card) / <alpha-value>)",
         surface: "rgb(var(--surface) / <alpha-value>)",
         page: "rgb(var(--page) / <alpha-value>)", // page background ("base" would clash with the text-base font size)
@@ -42,9 +29,9 @@ const config: Config = {
       borderRadius: { xl2: "20px", "4xl": "30px" },
       maxWidth: { page: "1440px" },
       boxShadow: {
-        figma: "0px 12px 30px 0px rgba(13, 38, 77, 0.07)",
-        soft: "0 8px 30px -12px rgba(15, 23, 42, 0.18)",
-        card: "0 2px 10px -2px rgba(15, 23, 42, 0.08)",
+        figma: "0px 12px 30px 0px rgba(89,26,31, 0.07)",
+        soft: "0 8px 30px -12px rgba(36,35,37, 0.18)",
+        card: "0 2px 10px -2px rgba(36,35,37, 0.08)",
       },
       keyframes: {
         marquee: { "0%": { transform: "translateX(0)" }, "100%": { transform: "translateX(-50%)" } },

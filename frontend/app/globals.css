@@ -5,14 +5,14 @@
 html { scroll-behavior: smooth; }
 /* Guards against sub-pixel horizontal overflow; clip (unlike hidden) keeps position: sticky working. */
 html, body { overflow-x: clip; }
-/* Figma variables: light (frames 01–13, 15) and dark (frame 14 · Ana səhifə / Tünd). */
+/* Figma "Kuryer.net · Semantic" variables: light (frames 01–13, 15) and dark (frame 14 · Ana səhifə / Tünd). */
 :root {
-  --ink: 15 23 42; --card: 255 255 255; --surface: 247 248 250; --page: 247 248 250; --muted: 98 112 135;
-  --line: 227 232 239; --link: 10 108 255; --brand-surface: 235 243 255; --amber-surface: 255 244 214;
+  --ink: 36 35 37; --card: 255 255 255; --surface: 247 246 245; --page: 247 246 245; --muted: 104 100 104;
+  --line: 230 225 225; --link: 199 33 39; --brand-surface: 254 247 247; --amber-surface: 252 235 236;
 }
 .dark {
-  --ink: 243 247 255; --card: 20 36 58; --surface: 14 29 48; --page: 11 21 36; --muted: 170 187 210;
-  --line: 43 64 89; --link: 117 175 255; --brand-surface: 19 45 77; --amber-surface: 55 47 29;
+  --ink: 252 248 248; --card: 38 35 38; --surface: 33 30 33; --page: 24 23 25; --muted: 198 191 195;
+  --line: 72 64 69; --link: 255 158 162; --brand-surface: 58 34 40; --amber-surface: 68 39 45;
   color-scheme: dark;
 }
 body { line-height: 1.4; }
@@ -22,15 +22,15 @@ details > summary::-webkit-details-marker { display: none; }
 .no-scrollbar::-webkit-scrollbar { display: none; }
 
 
-/* Figma "Weight slider": 6px #E3E8EF track (rx 3) with a 22px blue thumb clipped to the track height. */
-.figma-range { -webkit-appearance: none; appearance: none; width: 100%; height: 6px; border-radius: 3px; background: #E3E8EF; overflow: hidden; cursor: pointer; }
-.figma-range::-webkit-slider-thumb { -webkit-appearance: none; width: 22px; height: 22px; border-radius: 9999px; background: #0A6CFF; border: 0; }
-.figma-range::-moz-range-thumb { width: 22px; height: 6px; border-radius: 3px; background: #0A6CFF; border: 0; }
-.figma-range:focus-visible { outline: 2px solid #0A6CFF; outline-offset: 4px; }
+/* Figma "Weight slider": 6px #E6E1E1 track (rx 3) with a 22px blue thumb clipped to the track height. */
+.figma-range { -webkit-appearance: none; appearance: none; width: 100%; height: 6px; border-radius: 3px; background: #E6E1E1; overflow: hidden; cursor: pointer; }
+.figma-range::-webkit-slider-thumb { -webkit-appearance: none; width: 22px; height: 22px; border-radius: 9999px; background: #C72127; border: 0; }
+.figma-range::-moz-range-thumb { width: 22px; height: 6px; border-radius: 3px; background: #C72127; border: 0; }
+.figma-range:focus-visible { outline: 2px solid #C72127; outline-offset: 4px; }
 
 /* Mobile "Weight slider · mobile" (2:24262): 6px track inside a 24px row, full 22px thumb. */
 .figma-range-m { -webkit-appearance: none; appearance: none; width: 100%; height: 24px; background: transparent; cursor: pointer; }
-.figma-range-m::-webkit-slider-runnable-track { height: 6px; border-radius: 3px; background: #E3E8EF; }
-.figma-range-m::-webkit-slider-thumb { -webkit-appearance: none; width: 22px; height: 22px; margin-top: -8px; border-radius: 9999px; background: #0A6CFF; border: 0; }
-.figma-range-m::-moz-range-track { height: 6px; border-radius: 3px; background: #E3E8EF; }
-.figma-range-m::-moz-range-thumb { width: 22px; height: 22px; border-radius: 9999px; background: #0A6CFF; border: 0; }
+.figma-range-m::-webkit-slider-runnable-track { height: 6px; border-radius: 3px; background: #E6E1E1; }
+.figma-range-m::-webkit-slider-thumb { -webkit-appearance: none; width: 22px; height: 22px; margin-top: -8px; border-radius: 9999px; background: #C72127; border: 0; }
+.figma-range-m::-moz-range-track { height: 6px; border-radius: 3px; background: #E6E1E1; }
+.figma-range-m::-moz-range-thumb { width: 22px; height: 22px; border-radius: 9999px; background: #C72127; border: 0; }

@@ -8,8 +8,8 @@ import { Container, FigmaIcon, StatusBadge, btn } from "@/components/ui";
 /* Figma frame "15 · Dizayn sistemi" (2:20303): live reference of the tokens and components used in code. */
 
 const COLORS = [
-  ["ink", "#0F172A"], ["muted", "#627087"], ["blue", "#0A6CFF"], ["amber", "#FFB800"],
-  ["bg", "#F7F8FA"], ["line", "#E3E8EF"], ["pale", "#EBF3FF"], ["green", "#087F5B"],
+  ["ink", "#242325"], ["muted", "#686468"], ["blue", "#C72127"], ["amber", "#C72127"],
+  ["bg", "#F7F6F5"], ["line", "#E6E1E1"], ["pale", "#FEF7F7"], ["green", "#087F5B"],
 ];
 const SAMPLE = "Əə Ğğ Iı Öö Üü Çç Şş";
 const LABEL = "Sifariş et  ↗";
@@ -37,7 +37,7 @@ export default function DesignSystem() {
       {/* System header 2:20304 */}
       <section className="bg-card">
         <Container className="flex flex-col gap-4 py-14">
-          <h1 className="whitespace-pre-wrap text-[32px] font-bold leading-[1.4] text-ink md:text-[44px]">{"Yetir  /  Dizayn sistemi"}</h1>
+          <h1 className="whitespace-pre-wrap text-[32px] font-bold leading-[1.4] text-ink md:text-[44px]">{"Kuryer.net  /  Dizayn sistemi"}</h1>
           <p className="whitespace-pre-wrap text-[13px] font-semibold leading-[1.4] text-link">{"AZƏRBAYCAN ÜÇÜN ÇATDIRILMA  ·  V1.0  ·  DESKTOP 1440 / MOBİL 390"}</p>
           <p className="text-base leading-[1.4] text-ink">Nümunə tariflər, göstəricilər və tərəfdaş adları təqdimat üçündür. Hüquqi məlumatlar yayımdan əvvəl tamamlanmalıdır.</p>
           <p className="text-[15px] leading-[1.21] text-muted">Primitives → Semantic · Light / Dark. Rəng, boşluq və kənar radiusları üçün vahid inkişaf dili.</p>
@@ -74,8 +74,8 @@ export default function DesignSystem() {
           </div>
         ))}
         <div className="flex flex-wrap gap-4">
-          <span className={btn("accent", "lg", "pointer-events-none w-[260px] !bg-[#F2A900]")}>Hover · Sifariş et</span>
-          <span className={btn("accent", "lg", "pointer-events-none w-[260px] !bg-[#DE9900]")}>Pressed · Sifariş et</span>
+          <span className={btn("accent", "lg", "pointer-events-none w-[260px] !bg-[#B01D22]")}>Hover · Sifariş et</span>
+          <span className={btn("accent", "lg", "pointer-events-none w-[260px] !bg-[#9E1A1F]")}>Pressed · Sifariş et</span>
         </div>
       </Block>
 
@@ -126,7 +126,7 @@ export default function DesignSystem() {
       <Block title="08 / Xəritə nişanları">
         <div className="flex gap-4 text-center text-[15px] font-semibold">
           <span className="w-[60px] rounded-4xl bg-brand-500 p-[14px] text-white">A</span>
-          <span className="w-[60px] rounded-4xl bg-amber-500 p-[14px] text-ink">B</span>
+          <span className="w-[60px] rounded-4xl bg-amber-500 p-[14px] text-white">B</span>
           <span className="w-[60px] rounded-4xl bg-night p-[14px] text-white">➤</span>
         </div>
       </Block>

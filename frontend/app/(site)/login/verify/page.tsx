@@ -76,7 +76,7 @@ export default function VerifyPage() {
         ) : (
           <button type="button" onClick={() => setLeft(45)} className="text-left text-sm font-medium text-link">Kodu yenidən göndər</button>
         )}
-        <a href="tel:+994120000000" className="whitespace-pre-wrap text-sm font-semibold text-link">{"Kod gəlmədi? Dəstək ilə əlaqə saxlayın  ↗"}</a>
+        <a href="tel:+994124000000" className="whitespace-pre-wrap text-sm font-semibold text-link">{"Kod gəlmədi? Dəstək ilə əlaqə saxlayın  ↗"}</a>
       </form>
     </AuthLayout>
   );

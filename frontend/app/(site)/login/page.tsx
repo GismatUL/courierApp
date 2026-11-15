@@ -11,7 +11,7 @@ import { btn } from "@/components/ui";
 
 const TYPES = ["Fərdi", "Biznes", "Kuryer"] as const;
 /** Updated inputs: 8px label gap, blue focus border with a soft 3px ring. */
-const field = "!gap-2 transition-colors focus-within:shadow-[0_0_0_3px_rgba(10,108,255,0.12)]";
+const field = "!gap-2 transition-colors focus-within:shadow-[0_0_0_3px_rgba(199,33,39,0.12)]";
 
 export default function LoginPage() {
   const router = useRouter();
@@ -56,7 +56,7 @@ export default function LoginPage() {
         </BoxField>
         <BoxField label="Şifrə" normalCase className={field}>
           <input
-            className="w-full bg-transparent text-[15px] font-semibold text-ink outline-none placeholder:font-normal placeholder:text-[#9AA7B8]"
+            className="w-full bg-transparent text-[15px] font-semibold text-ink outline-none placeholder:font-normal placeholder:text-[#A39FA3]"
             required
             type="password"
             autoComplete="current-password"

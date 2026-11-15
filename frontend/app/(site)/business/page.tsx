@@ -23,7 +23,7 @@ export default function BusinessPage() {
       <section className="bg-night">
         <Container className="flex flex-col gap-6 py-[72px] leading-[1.4] lg:flex-row lg:items-start">
           <div className="flex flex-col items-start gap-4 lg:w-[720px] lg:min-w-0 lg:shrink">
-            <p className="text-xs font-bold text-amber-500">YETİR DEYİL — BİZNESİNİZİN BİR HİSSƏSİ</p>
+            <p className="text-xs font-bold text-[#FFB800]">Kuryer.net DEYİL — BİZNESİNİZİN BİR HİSSƏSİ</p>
             <h1 className="text-[40px] font-bold text-white md:text-[56px]">Çatdırılmanı bizə,<br />böyüməyi özünüzə<br />həvalə edin.</h1>
             <p className="text-lg text-[#C6D3E5]">Onlayn mağazalardan böyük şirkətlərə. Bütün Azərbaycan üzrə bir müqavilə, bir hesab, etibarlı logistika.</p>
             <LinkButton href="#lead" variant="accent" size="lg" className="w-full max-w-[300px]">Biznes təklifi al&nbsp;&nbsp;↗</LinkButton>

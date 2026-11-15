@@ -99,7 +99,7 @@ export default function TrackingPage() {
             <div className="flex flex-col gap-5 rounded-3xl bg-brand-surface p-6">
               <h2 className="text-xl font-bold text-ink">Alıcı üçün də rahatdır</h2>
               <p className="text-[15px] text-muted">Hesaba daxil olmadan canlı izləmə, kuryerlə əlaqə və vaxt dəyişmə.</p>
-              <a href="tel:+994120000000" className={btn("soft", "lg", "w-full")}>24/7 dəstək</a>
+              <a href="tel:+994124000000" className={btn("soft", "lg", "w-full")}>09:00–19:00 dəstək</a>
             </div>
           </div>
         </div>
@@ -184,7 +184,7 @@ function TrackingMobile({ eta, share, copied }: { eta: number; share: () => void
           <StatusBadge tone="delivered" className="w-[170px]">Çatdırılıb</StatusBadge>
           <p className="text-sm text-muted">Təhvil fotosu və vaxtı saxlanılır.</p>
         </div>
-        <a href="tel:+994120000000" className={btn("soft", "lg", "w-full")}>24/7 dəstək</a>
+        <a href="tel:+994124000000" className={btn("soft", "lg", "w-full")}>09:00–19:00 dəstək</a>
       </div>
     </div>
   );

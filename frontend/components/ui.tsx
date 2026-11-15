@@ -8,7 +8,7 @@ type Size = "sm" | "md" | "lg";
 /** Figma "Button / …" (15 · Dizayn sistemi › 03): Primary, Secondary, Ghost, Disabled; Large p18 / Small p12. */
 const variants: Record<Variant, string> = {
   primary: "bg-brand-500 text-white hover:bg-brand-600 active:bg-brand-700",
-  accent: "bg-amber-500 text-night hover:bg-[#F2A900] active:bg-[#DE9900]",
+  accent: "bg-amber-500 text-white hover:bg-[#B01D22] active:bg-[#9E1A1F]",
   secondary: "bg-card text-ink ring-1 ring-line hover:ring-slate-300",
   soft: "bg-brand-surface text-ink hover:bg-brand-100 active:bg-brand-200",
   ghost: "bg-card text-ink hover:bg-surface active:bg-line",
