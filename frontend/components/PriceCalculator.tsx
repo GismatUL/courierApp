@@ -2,12 +2,12 @@
 import { useState, type FormEvent, type ReactNode } from "react";
 import { Car, Footprints, Truck } from "lucide-react";
 import Link from "next/link";
-import { btn, SelectChevron } from "./ui";
-import { calcPrice, estimateKm, azn, type Vehicle } from "@/lib/pricing";
+import clsx from "clsx";
+import { btn } from "./ui";
+import { calcPrice, estimateKm, azn, VEHICLES, type Vehicle } from "@/lib/pricing";
 import { useI18n } from "@/lib/i18n";
 
 export const vehicleIcon = { foot: Footprints, car: Car, truck: Truck };
-const VEHICLE_LABEL: Record<Vehicle, string> = { foot: "Piyada", car: "Avtomobil", truck: "Yük maşını" };
 
 /** Figma "Input / Default": bordered box, label 12/600 muted above value 15/600. */
 export function BoxField({ label, children, className = "", normalCase }: { label: string; children: ReactNode; className?: string; normalCase?: boolean }) {
@@ -49,13 +49,30 @@ export function PriceCalculator() {
         <BoxField label={t.to} className={heroField}>
           <input className={fieldInput} value={to} onChange={(e) => setTo(e.target.value)} placeholder="Çatdırılma ünvanı" required />
         </BoxField>
-        <BoxField label={t.vehicle} className={heroField}>
-          <SelectChevron>
-            <select className={`${fieldInput} cursor-pointer appearance-none pr-6`} value={vehicle} onChange={(e) => setVehicle(e.target.value as Vehicle)}>
-              {(Object.keys(VEHICLE_LABEL) as Vehicle[]).map((v) => <option key={v} value={v}>{VEHICLE_LABEL[v]}</option>)}
-            </select>
-          </SelectChevron>
-        </BoxField>
+        {/* Vehicle tabs (icon + name + capacity) instead of a dropdown; native radios keep arrow-key navigation. */}
+        <fieldset className="rounded-xl border border-line bg-card p-4 leading-[1.4]">
+          <legend className="float-left mb-3 w-full text-xs font-semibold uppercase text-muted">{t.vehicle}</legend>
+          <div className="clear-both grid grid-cols-3 gap-2">
+            {(Object.keys(VEHICLES) as Vehicle[]).map((v) => {
+              const Icon = vehicleIcon[v];
+              const on = vehicle === v;
+              return (
+                <label
+                  key={v}
+                  className={clsx(
+                    "flex cursor-pointer flex-col items-center gap-1 rounded-[10px] border px-1.5 py-2.5 text-center transition-colors has-[:focus-visible]:ring-2 has-[:focus-visible]:ring-brand-500/40",
+                    on ? "border-brand-500 bg-brand-surface" : "border-line hover:border-[#C9C1C1]",
+                  )}
+                >
+                  <input type="radio" name="vehicle" value={v} checked={on} onChange={() => setVehicle(v)} className="sr-only" />
+                  <Icon aria-hidden className={clsx("size-6", on ? "text-link" : "text-muted")} strokeWidth={1.75} />
+                  <span className={clsx("whitespace-nowrap text-xs font-semibold lg:text-[13px]", on ? "text-link" : "text-ink")}>{VEHICLES[v].label}</span>
+                  <span className="whitespace-nowrap text-[11px] text-muted">{VEHICLES[v].capacity}</span>
+                </label>
+              );
+            })}
+          </div>
+        </fieldset>
         <button className={btn("accent", "lg", "w-full")}>
           <span className="lg:hidden">{t.calc}</span><span className="hidden lg:inline">{t.calcDelivery}</span>&nbsp;&nbsp;→
         </button>
