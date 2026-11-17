@@ -64,14 +64,14 @@ export function OrderMobile(p: OrderMobileProps) {
           {/* Vehicle selection 2:22914 */}
           <Card>
             <h2 className="text-2xl font-bold">Nə ilə çatdıraq?</h2>
-            <div className="flex items-start gap-2">
+            <div className="grid grid-cols-2 gap-2">
               {(Object.keys(VEHICLES) as Vehicle[]).map((v) => (
                 <button
                   key={v}
                   type="button"
                   aria-pressed={p.vehicle === v}
                   onClick={() => p.setVehicle(v)}
-                  className={clsx("flex w-[98px] min-w-0 flex-col items-start gap-3 rounded-xl border p-5 text-left", p.vehicle === v ? "border-brand-500 bg-brand-surface" : "border-line bg-card")}
+                  className={clsx("flex min-w-0 flex-col items-start gap-3 rounded-xl border p-5 text-left", p.vehicle === v ? "border-brand-500 bg-brand-surface" : "border-line bg-card")}
                 >
                   <FigmaIcon name={v} />
                   <span className="text-[15px] font-semibold">{VEHICLES[v].label}</span>
@@ -79,7 +79,7 @@ export function OrderMobile(p: OrderMobileProps) {
                 </button>
               ))}
             </div>
-            <p className="text-[11px] text-muted">Piyada 15 kq · Avto 200 kq · Yük 1 500 kq</p>
+            <p className="text-[11px] text-muted">Piyada 15 kq · Moto 30 kq · Avto 200 kq · Yük 1 500 kq</p>
             <div className="flex gap-2.5">
               {([["fast", "Sürətli", "30–60 dəq"], ["scheduled", "Planlı", "4 saatlıq interval"]] as const).map(([m, t, d]) => (
                 <button key={m} type="button" aria-pressed={p.mode === m} onClick={() => p.setMode(m)} className={clsx("flex w-[150px] flex-col items-start gap-4 rounded-[20px] p-[14px] text-left", p.mode === m ? "bg-brand-surface" : "bg-surface")}>

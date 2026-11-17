@@ -155,7 +155,7 @@ export default function OrderPage() {
           <div className="flex min-w-0 flex-col gap-6 lg:w-[840px] lg:min-w-0 lg:shrink">
             {/* 01 · Transport and timing 2:21271 */}
             <StepCard title="01  Nə ilə və nə vaxt?">
-              <div className="grid gap-3 sm:grid-cols-3">
+              <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
                 {(Object.keys(VEHICLES) as Vehicle[]).map((v) => (
                   <button
                     type="button"

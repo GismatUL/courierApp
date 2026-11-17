@@ -36,7 +36,7 @@ export default function PricingPage() {
 
       {/* Tariff cards 2:20264 */}
       <Band className="py-16 leading-[1.4]">
-        <div className="grid gap-6 md:grid-cols-3 md:items-start">
+        <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4 md:items-start">
           {(Object.keys(VEHICLES) as Vehicle[]).map((k) => {
             const v = VEHICLES[k];
             const featured = k === "car";

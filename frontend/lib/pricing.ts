@@ -1,10 +1,11 @@
-export type Vehicle = "foot" | "car" | "truck";
+export type Vehicle = "foot" | "moto" | "car" | "truck";
 
 export const VEHICLES: Record<
   Vehicle,
   { label: string; capacity: string; maxKg: number; base: number; perKm: number; perStop: number; perWaitMin: number; perKg: number }
 > = {
   foot: { label: "Piyada", capacity: "15 kq-dək", maxKg: 15, base: 2, perKm: 0.5, perStop: 1, perWaitMin: 0.1, perKg: 0.2 },
+  moto: { label: "Moto", capacity: "30 kq-dək", maxKg: 30, base: 2.5, perKm: 0.6, perStop: 1.2, perWaitMin: 0.12, perKg: 0.2 },
   car: { label: "Avtomobil", capacity: "200 kq-dək", maxKg: 200, base: 3, perKm: 0.8, perStop: 1.5, perWaitMin: 0.15, perKg: 0.15 },
   truck: { label: "Yük maşını", capacity: "1 500 kq-dək", maxKg: 1500, base: 15, perKm: 1.2, perStop: 3, perWaitMin: 0.3, perKg: 0.1 },
 };

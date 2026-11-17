@@ -42,11 +42,11 @@ export default function CourierSignup() {
           <BoxField label="Nəqliyyat növü" normalCase>
             <SelectChevron>
               <select className={`${input} cursor-pointer appearance-none pr-6`} defaultValue="Avtomobil">
-                {["Piyada", "Avtomobil", "Yük maşını"].map((v) => <option key={v} value={v}>{`${v}`}</option>)}
+                {["Piyada", "Moto", "Avtomobil", "Yük maşını"].map((v) => <option key={v} value={v}>{`${v}`}</option>)}
               </select>
             </SelectChevron>
           </BoxField>
-          <p className="text-xs text-muted">Piyada · Avtomobil · Yük maşını</p>
+          <p className="text-xs text-muted">Piyada · Moto · Avtomobil · Yük maşını</p>
           <div className="text-[13px] text-muted">
             <label className="flex items-center gap-2"><input type="checkbox" required defaultChecked className="h-3.5 w-3.5 accent-muted" />18 yaşım var və şərtlərlə razıyam.</label>
             <label className="flex items-center gap-2"><input type="checkbox" required defaultChecked className="h-3.5 w-3.5 accent-muted" />Şəxsi məlumatların emalına razıyam.</label>
