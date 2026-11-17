@@ -95,7 +95,7 @@ export default function DesignSystem() {
 
       <Block title="05 / Nəqliyyat seçimi">
         <div className="flex flex-wrap gap-4">
-          {([["foot", "Piyada", "15 kq-dək"], ["car", "Avtomobil", "200 kq-dək"], ["truck", "Yük maşını", "1 500 kq-dək"]] as const).map(([k, t, d]) => (
+          {([["foot", "Piyada", "15 kq-dək"], ["moto", "Moto", "30 kq-dək"], ["car", "Avtomobil", "200 kq-dək"], ["truck", "Yük maşını", "1 500 kq-dək"]] as const).map(([k, t, d]) => (
             <div key={k} className={clsx("flex w-[260px] flex-col gap-3 rounded-xl border p-5", k === "car" ? "border-brand-500 bg-brand-surface" : "border-line bg-card")}>
               <FigmaIcon name={k} />
               <span className="text-[15px] font-semibold text-ink">{t}</span>

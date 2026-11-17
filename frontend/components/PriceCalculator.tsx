@@ -1,13 +1,13 @@
 "use client";
 import { useState, type FormEvent, type ReactNode } from "react";
-import { Car, Footprints, Truck } from "lucide-react";
+import { Bike, Car, Footprints, Truck } from "lucide-react";
 import Link from "next/link";
 import clsx from "clsx";
 import { btn } from "./ui";
 import { calcPrice, estimateKm, azn, VEHICLES, type Vehicle } from "@/lib/pricing";
 import { useI18n } from "@/lib/i18n";
 
-export const vehicleIcon = { foot: Footprints, car: Car, truck: Truck };
+export const vehicleIcon = { foot: Footprints, moto: Bike, car: Car, truck: Truck };
 
 /** Figma "Input / Default": bordered box, label 12/600 muted above value 15/600. */
 export function BoxField({ label, children, className = "", normalCase }: { label: string; children: ReactNode; className?: string; normalCase?: boolean }) {
@@ -52,7 +52,7 @@ export function PriceCalculator() {
         {/* Vehicle tabs (icon + name + capacity) instead of a dropdown; native radios keep arrow-key navigation. */}
         <fieldset className="rounded-xl border border-line bg-card p-4 leading-[1.4]">
           <legend className="float-left mb-3 w-full text-xs font-semibold uppercase text-muted">{t.vehicle}</legend>
-          <div className="clear-both grid grid-cols-3 gap-2">
+          <div className="clear-both grid grid-cols-2 gap-2 sm:grid-cols-4">
             {(Object.keys(VEHICLES) as Vehicle[]).map((v) => {
               const Icon = vehicleIcon[v];
               const on = vehicle === v;
