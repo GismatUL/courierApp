@@ -3,12 +3,13 @@
 /*
 | Admin sidebar (spec §1 "Menyu strukturu"). Each item names a route; items whose route
 | does not exist yet render as disabled, so a module appears in the menu once its routes land.
-| `permission` keys follow the spec (§9.1) and are enforced once roles/permissions are built.
+| Items whose `permission` key (spec §9.1) the user lacks are hidden, and so are groups left empty.
 */
 
 return [
     'menu' => [
-        ['label' => 'İdarə Paneli', 'icon' => 'layout-dashboard', 'route' => 'admin.dashboard', 'permission' => 'dashboard_read'],
+        // Open to every signed-in user (it is where login lands); its cards will check their own keys.
+        ['label' => 'İdarə Paneli', 'icon' => 'layout-dashboard', 'route' => 'admin.dashboard'],
 
         ['label' => 'Paketlər', 'icon' => 'package', 'items' => [
             ['label' => 'Paketlər', 'route' => 'admin.parcels.index', 'permission' => 'parcel_read'],

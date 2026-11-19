@@ -4,11 +4,13 @@ namespace App\Livewire\Admin\Management\Forms;
 
 use App\Models\Region;
 use Illuminate\Validation\Rule;
+use Livewire\Attributes\Locked;
 use Livewire\Form;
 
 /** Spec §7.3 region form: name, zone, status. */
 class RegionForm extends Form
 {
+    #[Locked]
     public ?int $id = null;
 
     public string $name = '';

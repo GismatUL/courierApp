@@ -1,6 +1,6 @@
 <div class="flex flex-col gap-5">
     <x-admin.page-header description="Məzənnə 1 ABŞ dollarına nisbətdə göstərilir. Əsas valyuta Ümumi Tənzimləmələrdə seçilir.">
-        <x-admin.button wire:click="create"><x-admin.icon name="plus" class="size-4" /> Əlavə et</x-admin.button>
+        @if ($this->can('create'))<x-admin.button wire:click="create"><x-admin.icon name="plus" class="size-4" /> Əlavə et</x-admin.button>@endif
     </x-admin.page-header>
 
     <x-admin.table :empty="$currencies->isEmpty()">
@@ -29,8 +29,8 @@
                 <td class="px-4 py-3"><x-admin.status-badge :active="$currency->status" /></td>
                 <td class="px-4 py-3">
                     <div class="flex justify-end gap-1">
-                        <x-admin.button variant="ghost" size="sm" wire:click="edit({{ $currency->id }})" aria-label="Redaktə et"><x-admin.icon name="pencil" class="size-4" /></x-admin.button>
-                        <x-admin.button variant="ghost" size="sm" wire:click="confirmDelete({{ $currency->id }})" aria-label="Sil"><x-admin.icon name="trash-2" class="size-4" /></x-admin.button>
+                        @if ($this->can('update'))<x-admin.button variant="ghost" size="sm" wire:click="edit({{ $currency->id }})" aria-label="Redaktə et"><x-admin.icon name="pencil" class="size-4" /></x-admin.button>@endif
+                        @if ($this->can('delete'))<x-admin.button variant="ghost" size="sm" wire:click="confirmDelete({{ $currency->id }})" aria-label="Sil"><x-admin.icon name="trash-2" class="size-4" /></x-admin.button>@endif
                     </div>
                 </td>
             </tr>

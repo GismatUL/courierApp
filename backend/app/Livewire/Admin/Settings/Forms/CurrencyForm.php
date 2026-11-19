@@ -6,11 +6,13 @@ use App\Models\Currency;
 use App\Services\Settings;
 use Illuminate\Validation\Rule;
 use Illuminate\Validation\ValidationException;
+use Livewire\Attributes\Locked;
 use Livewire\Form;
 
 /** Spec §10.4 form: name, code, symbol (required), exchange rate "1 USD = ?" (required), symbol position, status. */
 class CurrencyForm extends Form
 {
+    #[Locked]
     public ?int $id = null;
 
     public string $name = '';

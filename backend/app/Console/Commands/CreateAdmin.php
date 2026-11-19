@@ -2,6 +2,7 @@
 
 namespace App\Console\Commands;
 
+use App\Models\Role;
 use App\Models\User;
 use Illuminate\Console\Attributes\Description;
 use Illuminate\Console\Attributes\Signature;
@@ -12,7 +13,7 @@ use function Laravel\Prompts\password;
 use function Laravel\Prompts\text;
 
 #[Signature('admin:create {email? : Login email} {--name= : Display name}')]
-#[Description('Create (or reactivate) an admin panel user; the password is asked interactively')]
+#[Description('Create (or reactivate) a Super Admin user; the password is asked interactively')]
 class CreateAdmin extends Command
 {
     public function handle(): int
@@ -34,7 +35,9 @@ class CreateAdmin extends Command
             return self::FAILURE;
         }
 
-        User::updateOrCreate(['email' => $email], ['name' => $name, 'password' => $password, 'status' => true]);
+        $role = Role::firstOrCreate(['slug' => Role::SUPER_ADMIN], ['name' => 'Super Admin', 'permissions' => []]);
+
+        User::updateOrCreate(['email' => $email], ['name' => $name, 'password' => $password, 'status' => true, 'role_id' => $role->id]);
         $this->info("Admin {$email} is ready.");
 
         return self::SUCCESS;

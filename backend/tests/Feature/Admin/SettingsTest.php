@@ -23,7 +23,7 @@ class SettingsTest extends TestCase
     {
         parent::setUp();
         $this->seed(ReferenceDataSeeder::class);
-        $this->actingAs(User::factory()->create());
+        $this->actingAs(User::factory()->superAdmin()->create());
     }
 
     public function test_settings_pages_render(): void

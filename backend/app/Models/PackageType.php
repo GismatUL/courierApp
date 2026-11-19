@@ -31,6 +31,6 @@ class PackageType extends Model
 
     public function deletionBlocker(): ?string
     {
-        return $this->zoneTariffs()->exists() ? 'Bu paket növü zona tariflərində istifadə olunur.' : null;
+        return $this->zoneTariffs()->exists() ? 'Bu paket növü zona tariflərində istifadə olunur. Əvəzinə Passiv edin.' : null;
     }
 }

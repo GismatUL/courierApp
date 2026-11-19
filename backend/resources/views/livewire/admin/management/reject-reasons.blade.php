@@ -1,6 +1,6 @@
 <div class="flex flex-col gap-5">
     <x-admin.page-header description="Çatdırılmanın uğursuz olma səbəbi; paket statusunun altında göstərilir.">
-        <x-admin.button wire:click="create"><x-admin.icon name="plus" class="size-4" /> Əlavə et</x-admin.button>
+        @if ($this->can('create'))<x-admin.button wire:click="create"><x-admin.icon name="plus" class="size-4" /> Əlavə et</x-admin.button>@endif
     </x-admin.page-header>
 
     <x-admin.table :empty="$reasons->isEmpty()">
@@ -18,8 +18,8 @@
                 <td class="px-4 py-3"><x-admin.status-badge :active="$reason->status" /></td>
                 <td class="px-4 py-3">
                     <div class="flex justify-end gap-1">
-                        <x-admin.button variant="ghost" size="sm" wire:click="edit({{ $reason->id }})" aria-label="Redaktə et"><x-admin.icon name="pencil" class="size-4" /></x-admin.button>
-                        <x-admin.button variant="ghost" size="sm" wire:click="confirmDelete({{ $reason->id }})" aria-label="Sil"><x-admin.icon name="trash-2" class="size-4" /></x-admin.button>
+                        @if ($this->can('update'))<x-admin.button variant="ghost" size="sm" wire:click="edit({{ $reason->id }})" aria-label="Redaktə et"><x-admin.icon name="pencil" class="size-4" /></x-admin.button>@endif
+                        @if ($this->can('delete'))<x-admin.button variant="ghost" size="sm" wire:click="confirmDelete({{ $reason->id }})" aria-label="Sil"><x-admin.icon name="trash-2" class="size-4" /></x-admin.button>@endif
                     </div>
                 </td>
             </tr>

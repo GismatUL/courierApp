@@ -8,6 +8,7 @@ use App\Models\PackageType;
 use App\Models\Zone;
 use App\Services\ZoneTariffService;
 use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\Gate;
 use Livewire\Attributes\Computed;
 use Livewire\Component;
 
@@ -75,6 +76,7 @@ class ZoneTariffs extends Component
 
     public function save(ZoneTariffService $service): void
     {
+        Gate::authorize('zone_edit');
         $this->validate();
         $allowed = $this->packageTypes->pluck('id')->all();
         $count = $service->sync($this->zone, array_intersect_key($this->rows, array_flip($allowed)));

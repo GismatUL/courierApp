@@ -1,7 +1,7 @@
 <div class="flex flex-col gap-5">
     <x-admin.page-header description="Zonaya aid alt ərazilər.">
         <x-admin.button variant="secondary" :href="route('admin.zones.index')" wire:navigate>Zonalar</x-admin.button>
-        <x-admin.button wire:click="create"><x-admin.icon name="plus" class="size-4" /> Əlavə et</x-admin.button>
+        @if ($this->can('create'))<x-admin.button wire:click="create"><x-admin.icon name="plus" class="size-4" /> Əlavə et</x-admin.button>@endif
     </x-admin.page-header>
 
     <x-admin.filters>
@@ -31,8 +31,8 @@
                 <td class="px-4 py-3"><x-admin.status-badge :active="$region->status" /></td>
                 <td class="px-4 py-3">
                     <div class="flex justify-end gap-1">
-                        <x-admin.button variant="ghost" size="sm" wire:click="edit({{ $region->id }})" aria-label="Redaktə et"><x-admin.icon name="pencil" class="size-4" /></x-admin.button>
-                        <x-admin.button variant="ghost" size="sm" wire:click="confirmDelete({{ $region->id }})" aria-label="Sil"><x-admin.icon name="trash-2" class="size-4" /></x-admin.button>
+                        @if ($this->can('update'))<x-admin.button variant="ghost" size="sm" wire:click="edit({{ $region->id }})" aria-label="Redaktə et"><x-admin.icon name="pencil" class="size-4" /></x-admin.button>@endif
+                        @if ($this->can('delete'))<x-admin.button variant="ghost" size="sm" wire:click="confirmDelete({{ $region->id }})" aria-label="Sil"><x-admin.icon name="trash-2" class="size-4" /></x-admin.button>@endif
                     </div>
                 </td>
             </tr>

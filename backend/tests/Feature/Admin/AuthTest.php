@@ -108,7 +108,7 @@ class AuthTest extends TestCase
 
     public function test_sidebar_links_existing_routes_and_disables_unbuilt_modules(): void
     {
-        $this->actingAs(User::factory()->create())
+        $this->actingAs(User::factory()->superAdmin()->create())
             ->get('/admin')
             ->assertOk()
             ->assertSee('href="'.route('admin.dashboard').'"', false)

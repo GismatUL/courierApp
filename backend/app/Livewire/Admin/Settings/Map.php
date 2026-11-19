@@ -4,6 +4,7 @@ namespace App\Livewire\Admin\Settings;
 
 use App\Livewire\Admin\Concerns\Toasts;
 use App\Services\Settings;
+use Illuminate\Support\Facades\Gate;
 use Livewire\Attributes\Title;
 use Livewire\Component;
 
@@ -35,6 +36,7 @@ class Map extends Component
 
     public function save(Settings $settings): void
     {
+        Gate::authorize('general_settings_update');
         $this->mapKey = trim($this->mapKey);
         $this->validate();
         $settings->set(['map_key' => $this->mapKey ?: null]);

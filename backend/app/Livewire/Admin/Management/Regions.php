@@ -3,6 +3,7 @@
 namespace App\Livewire\Admin\Management;
 
 use App\Livewire\Admin\Concerns\ConfirmsDeletion;
+use App\Livewire\Admin\Concerns\HasAbilities;
 use App\Livewire\Admin\Concerns\ManagesFormModal;
 use App\Livewire\Admin\Concerns\Toasts;
 use App\Livewire\Admin\Management\Forms\RegionForm;
@@ -18,7 +19,7 @@ use Livewire\WithPagination;
 #[Title('Regionlar')]
 class Regions extends Component
 {
-    use ConfirmsDeletion, ManagesFormModal, Toasts, WithPagination;
+    use ConfirmsDeletion, HasAbilities, ManagesFormModal, Toasts, WithPagination;
 
     public RegionForm $form;
 
@@ -39,9 +40,15 @@ class Regions extends Component
     /** New regions default to the zone in the filter. */
     public function create(): void
     {
+        $this->authorizeAction('create');
         $this->form->resetValidation();
         $this->form->setRecord(null, $this->zoneId);
         $this->showForm = true;
+    }
+
+    protected function abilities(): array
+    {
+        return ['create' => 'region_create', 'update' => 'region_edit', 'delete' => 'region_delete'];
     }
 
     protected function deletableQuery(): Builder

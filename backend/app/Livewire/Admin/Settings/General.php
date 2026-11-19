@@ -6,6 +6,7 @@ use App\Livewire\Admin\Concerns\Toasts;
 use App\Models\Currency;
 use App\Services\Settings;
 use Illuminate\Http\UploadedFile;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use Livewire\Attributes\Title;
@@ -85,6 +86,7 @@ class General extends Component
 
     public function save(Settings $settings): void
     {
+        Gate::authorize('general_settings_update');
         $this->validate();
 
         $data = array_map(fn ($value) => $value === '' ? null : $value, $this->values);
@@ -102,6 +104,7 @@ class General extends Component
 
     public function removeFile(string $key, Settings $settings): void
     {
+        Gate::authorize('general_settings_update');
         abort_unless(in_array($key, self::FILE_KEYS, true), 404);
 
         if ($old = $settings->get($key)) {

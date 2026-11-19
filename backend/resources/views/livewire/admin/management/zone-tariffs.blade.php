@@ -8,7 +8,7 @@
                 <span class="ml-2 rounded-full bg-surface px-2 py-0.5 text-xs">{{ $zone->hub->name }}</span>
             @endif
         </nav>
-        <x-admin.button type="submit" wire:loading.attr="disabled" wire:target="save">Yadda saxla</x-admin.button>
+        @can('zone_edit')<x-admin.button type="submit" wire:loading.attr="disabled" wire:target="save">Yadda saxla</x-admin.button>@endcan
     </div>
 
     <p class="rounded-[10px] bg-amber-surface px-3 py-2.5 text-sm text-muted">
@@ -71,7 +71,7 @@
 
     @if ($this->packageTypes->isNotEmpty())
         <div class="flex justify-end">
-            <x-admin.button type="submit" wire:loading.attr="disabled" wire:target="save">Yadda saxla</x-admin.button>
+            @can('zone_edit')<x-admin.button type="submit" wire:loading.attr="disabled" wire:target="save">Yadda saxla</x-admin.button>@endcan
         </div>
     @endif
 </form>

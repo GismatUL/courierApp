@@ -2,38 +2,42 @@
 
 namespace App\View\Components\Admin;
 
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Route;
 use Illuminate\View\Component;
 use Illuminate\View\View;
 
-/** Resolves config('admin.menu') into links: disabled until the route exists, active for the current route. */
+/**
+ * Resolves config('admin.menu') into links: hidden without the item's permission, disabled until
+ * the route exists, active for the current route. Groups with no visible items are dropped.
+ */
 class Sidebar extends Component
 {
     /** @var list<array<string, mixed>> */
-    public array $menu;
+    public array $menu = [];
 
     public function __construct()
     {
-        $this->menu = array_map(fn (array $entry) => isset($entry['items'])
-            ? $this->group($entry)
-            : $this->link($entry), config('admin.menu', []));
-    }
+        foreach (config('admin.menu', []) as $entry) {
+            if (isset($entry['items'])) {
+                $items = array_values(array_filter(array_map(fn (array $item) => $this->link($item), $entry['items'])));
 
-    /** @param array<string, mixed> $group */
-    private function group(array $group): array
-    {
-        $items = array_map(fn (array $item) => $this->link($item), $group['items']);
-
-        return [
-            ...$group,
-            'items' => $items,
-            'active' => in_array(true, array_column($items, 'active'), true),
-        ];
+                if ($items !== []) {
+                    $this->menu[] = [...$entry, 'items' => $items, 'active' => in_array(true, array_column($items, 'active'), true)];
+                }
+            } elseif ($link = $this->link($entry)) {
+                $this->menu[] = $link;
+            }
+        }
     }
 
     /** @param array<string, mixed> $item */
-    private function link(array $item): array
+    private function link(array $item): ?array
     {
+        if (isset($item['permission']) && Gate::denies($item['permission'])) {
+            return null;
+        }
+
         $exists = Route::has($item['route']);
 
         return [

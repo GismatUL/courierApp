@@ -3,6 +3,7 @@
 namespace App\Livewire\Admin\Management;
 
 use App\Livewire\Admin\Concerns\ConfirmsDeletion;
+use App\Livewire\Admin\Concerns\HasAbilities;
 use App\Livewire\Admin\Concerns\ManagesFormModal;
 use App\Livewire\Admin\Concerns\Toasts;
 use App\Livewire\Admin\Management\Forms\ShelfForm;
@@ -18,7 +19,7 @@ use Livewire\WithPagination;
 #[Title('Qutular')]
 class Shelves extends Component
 {
-    use ConfirmsDeletion, ManagesFormModal, Toasts, WithPagination;
+    use ConfirmsDeletion, HasAbilities, ManagesFormModal, Toasts, WithPagination;
 
     public ShelfForm $form;
 
@@ -39,6 +40,11 @@ class Shelves extends Component
     {
         $this->reset('search', 'zoneId');
         $this->resetPage();
+    }
+
+    protected function abilities(): array
+    {
+        return ['create' => 'shelf_create', 'update' => 'shelf_edit', 'delete' => 'shelf_delete'];
     }
 
     protected function deletableQuery(): Builder

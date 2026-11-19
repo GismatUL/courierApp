@@ -3,6 +3,7 @@
 namespace App\Livewire\Admin\Management;
 
 use App\Livewire\Admin\Concerns\ConfirmsDeletion;
+use App\Livewire\Admin\Concerns\HasAbilities;
 use App\Livewire\Admin\Concerns\ManagesFormModal;
 use App\Livewire\Admin\Concerns\Toasts;
 use App\Livewire\Admin\Management\Forms\HubForm;
@@ -18,7 +19,7 @@ use Livewire\WithPagination;
 #[Title('Filiallar')]
 class Hubs extends Component
 {
-    use ConfirmsDeletion, ManagesFormModal, Toasts, WithPagination;
+    use ConfirmsDeletion, HasAbilities, ManagesFormModal, Toasts, WithPagination;
 
     public HubForm $form;
 
@@ -39,6 +40,11 @@ class Hubs extends Component
     {
         $this->reset('name', 'phone');
         $this->resetPage();
+    }
+
+    protected function abilities(): array
+    {
+        return ['create' => 'hub_create', 'update' => 'hub_update', 'delete' => 'hub_delete'];
     }
 
     protected function deletableQuery(): Builder

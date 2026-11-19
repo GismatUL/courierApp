@@ -4,11 +4,13 @@ namespace App\Livewire\Admin\Management\Forms;
 
 use App\Models\Zone;
 use Illuminate\Validation\Rule;
+use Livewire\Attributes\Locked;
 use Livewire\Form;
 
 /** Spec §7.3 zone create form: name (required), note, hub, status. */
 class ZoneForm extends Form
 {
+    #[Locked]
     public ?int $id = null;
 
     public string $name = '';

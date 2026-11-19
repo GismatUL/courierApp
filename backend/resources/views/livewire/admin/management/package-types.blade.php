@@ -1,6 +1,6 @@
 <div class="flex flex-col gap-5">
     <x-admin.page-header description="Paketin ölçü sinfi çəkiyə görə müəyyən edilir; tariflər paket növü üzrə qurulur.">
-        <x-admin.button wire:click="create"><x-admin.icon name="plus" class="size-4" /> Əlavə et</x-admin.button>
+        @if ($this->can('create'))<x-admin.button wire:click="create"><x-admin.icon name="plus" class="size-4" /> Əlavə et</x-admin.button>@endif
     </x-admin.page-header>
 
     <x-admin.table :empty="$types->isEmpty()">
@@ -27,8 +27,8 @@
                 <td class="px-4 py-3"><x-admin.status-badge :active="$type->status" /></td>
                 <td class="px-4 py-3">
                     <div class="flex justify-end gap-1">
-                        <x-admin.button variant="ghost" size="sm" wire:click="edit({{ $type->id }})" aria-label="Redaktə et"><x-admin.icon name="pencil" class="size-4" /></x-admin.button>
-                        <x-admin.button variant="ghost" size="sm" wire:click="confirmDelete({{ $type->id }})" aria-label="Sil"><x-admin.icon name="trash-2" class="size-4" /></x-admin.button>
+                        @if ($this->can('update'))<x-admin.button variant="ghost" size="sm" wire:click="edit({{ $type->id }})" aria-label="Redaktə et"><x-admin.icon name="pencil" class="size-4" /></x-admin.button>@endif
+                        @if ($this->can('delete'))<x-admin.button variant="ghost" size="sm" wire:click="confirmDelete({{ $type->id }})" aria-label="Sil"><x-admin.icon name="trash-2" class="size-4" /></x-admin.button>@endif
                     </div>
                 </td>
             </tr>

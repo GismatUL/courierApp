@@ -4,11 +4,13 @@ namespace App\Livewire\Admin\Management\Forms;
 
 use App\Models\RejectReason;
 use Illuminate\Validation\Rule;
+use Livewire\Attributes\Locked;
 use Livewire\Form;
 
 /** Spec §7.7 form: name (required), status. */
 class RejectReasonForm extends Form
 {
+    #[Locked]
     public ?int $id = null;
 
     public string $name = '';

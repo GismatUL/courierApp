@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Builder;
 /**
  * Delete with a confirmation dialog (<x-admin.confirm-delete />). A record can refuse deletion
  * by returning a reason from deletionBlocker(), e.g. when other data still points to it.
- * The component also uses the Toasts trait.
+ * The component also uses the HasAbilities and Toasts traits.
  */
 trait ConfirmsDeletion
 {
@@ -17,6 +17,7 @@ trait ConfirmsDeletion
 
     public function confirmDelete(int $id): void
     {
+        $this->authorizeAction('delete');
         $this->deletingId = $id;
     }
 
@@ -27,11 +28,12 @@ trait ConfirmsDeletion
 
     public function delete(): void
     {
+        $this->authorizeAction('delete');
         $record = $this->deletableQuery()->findOrFail($this->deletingId);
         $this->deletingId = null;
 
         if ($reason = $record->deletionBlocker()) {
-            $this->toast($reason.' Əvəzinə Passiv edin.', 'error');
+            $this->toast($reason, 'error');
 
             return;
         }

@@ -3,6 +3,7 @@
 namespace App\Livewire\Admin\Management;
 
 use App\Livewire\Admin\Concerns\ConfirmsDeletion;
+use App\Livewire\Admin\Concerns\HasAbilities;
 use App\Livewire\Admin\Concerns\ManagesFormModal;
 use App\Livewire\Admin\Concerns\Toasts;
 use App\Livewire\Admin\Management\Forms\PackageTypeForm;
@@ -15,9 +16,14 @@ use Livewire\Component;
 #[Title('Paket Növləri')]
 class PackageTypes extends Component
 {
-    use ConfirmsDeletion, ManagesFormModal, Toasts;
+    use ConfirmsDeletion, HasAbilities, ManagesFormModal, Toasts;
 
     public PackageTypeForm $form;
+
+    protected function abilities(): array
+    {
+        return ['create' => 'zone_create', 'update' => 'zone_edit', 'delete' => 'zone_delete'];
+    }
 
     protected function deletableQuery(): Builder
     {

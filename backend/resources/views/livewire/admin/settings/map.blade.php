@@ -9,6 +9,6 @@
     </div>
 
     <div class="flex justify-end">
-        <x-admin.button type="submit" wire:loading.attr="disabled" wire:target="save">Yadda saxla</x-admin.button>
+        @can('general_settings_update')<x-admin.button type="submit" wire:loading.attr="disabled" wire:target="save">Yadda saxla</x-admin.button>@endcan
     </div>
 </form>

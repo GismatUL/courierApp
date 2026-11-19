@@ -41,8 +41,8 @@ class Zone extends Model
     public function deletionBlocker(): ?string
     {
         return match (true) {
-            $this->regions()->exists() => 'Bu zonanın regionları var.',
-            $this->shelves()->exists() => 'Bu zonaya bağlı qutular var.',
+            $this->regions()->exists() => 'Bu zonanın regionları var. Əvəzinə Passiv edin.',
+            $this->shelves()->exists() => 'Bu zonaya bağlı qutular var. Əvəzinə Passiv edin.',
             default => null,
         };
     }

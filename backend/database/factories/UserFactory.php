@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Role;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Facades\Hash;
@@ -51,5 +52,25 @@ class UserFactory extends Factory
         return $this->state(fn (array $attributes) => [
             'status' => false,
         ]);
+    }
+
+    /**
+     * Give the user the Super Admin role (every permission).
+     */
+    public function superAdmin(): static
+    {
+        return $this->state(fn (array $attributes) => [
+            'role_id' => Role::firstOrCreate(['slug' => Role::SUPER_ADMIN], ['name' => 'Super Admin', 'permissions' => []])->id,
+        ]);
+    }
+
+    /**
+     * Give the user exactly these permission keys (no role).
+     *
+     * @param  list<string>  $keys
+     */
+    public function withPermissions(array $keys): static
+    {
+        return $this->state(fn (array $attributes) => ['permissions' => $keys]);
     }
 }

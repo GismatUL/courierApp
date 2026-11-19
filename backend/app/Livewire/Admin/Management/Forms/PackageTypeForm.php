@@ -5,11 +5,13 @@ namespace App\Livewire\Admin\Management\Forms;
 use App\Models\PackageType;
 use Illuminate\Validation\Rule;
 use Illuminate\Validation\ValidationException;
+use Livewire\Attributes\Locked;
 use Livewire\Form;
 
 /** Spec §7.4: name, min/max weight (kg), description, status. Ranges must not overlap (spec recommendation). */
 class PackageTypeForm extends Form
 {
+    #[Locked]
     public ?int $id = null;
 
     public string $name = '';

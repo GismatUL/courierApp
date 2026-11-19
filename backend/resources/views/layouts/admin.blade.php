@@ -58,8 +58,8 @@
                 </button>
                 <div x-cloak x-show="open" x-transition class="absolute right-0 mt-1 w-56 rounded-lg border border-line bg-white py-1 text-sm shadow-lg">
                     <p class="truncate border-b border-line px-3 py-2 text-xs text-muted">{{ auth()->user()->email }}</p>
-                    <span class="flex cursor-not-allowed items-center gap-2 px-3 py-2 text-muted/60" title="Tezliklə"><x-admin.icon name="user" class="size-4" /> Profil</span>
-                    <span class="flex cursor-not-allowed items-center gap-2 px-3 py-2 text-muted/60" title="Tezliklə"><x-admin.icon name="key-round" class="size-4" /> Şifrəni Dəyiş</span>
+                    <a href="{{ route('admin.profile') }}" wire:navigate class="flex items-center gap-2 px-3 py-2 text-ink hover:bg-surface"><x-admin.icon name="user" class="size-4" /> Profil</a>
+                    <a href="{{ route('admin.profile') }}#p-old" wire:navigate class="flex items-center gap-2 px-3 py-2 text-ink hover:bg-surface"><x-admin.icon name="key-round" class="size-4" /> Şifrəni Dəyiş</a>
                     <form method="POST" action="{{ route('admin.logout') }}">
                         @csrf
                         <button type="submit" class="flex w-full items-center gap-2 px-3 py-2 text-left text-ink hover:bg-surface">
@@ -76,8 +76,10 @@
     </div>
 
     {{-- Toasts: Livewire components dispatch('toast', message: …, type: 'success'|'error'). --}}
-    <div x-data="{ toasts: [] }" aria-live="polite"
-         x-on:toast.window="const t = { id: Date.now() + Math.random(), ...$event.detail }; toasts.push(t); setTimeout(() => toasts = toasts.filter(x => x.id !== t.id), 4000)"
+    {{-- A message flashed before a redirect (session "toast") is shown once on the next page. --}}
+    <div x-data="{ toasts: [], add(detail) { const t = { id: Date.now() + Math.random(), type: 'success', ...detail }; this.toasts.push(t); setTimeout(() => this.toasts = this.toasts.filter(x => x.id !== t.id), 4000) } }"
+         x-init="@if (session('toast')) add({ message: @js(session('toast')) }) @endif" aria-live="polite"
+         x-on:toast.window="add($event.detail)"
          class="pointer-events-none fixed right-4 bottom-4 z-[60] flex w-full max-w-sm flex-col gap-2">
         <template x-for="t in toasts" :key="t.id">
             <div x-transition class="pointer-events-auto flex items-start gap-2.5 rounded-xl border bg-white px-4 py-3 text-sm font-medium shadow-lg"

@@ -4,11 +4,13 @@ namespace App\Livewire\Admin\Management\Forms;
 
 use App\Models\Shelf;
 use Illuminate\Validation\Rule;
+use Livewire\Attributes\Locked;
 use Livewire\Form;
 
 /** Spec §7.6 form: name, code (scanned at the warehouse, so unique), zone, limit, status. */
 class ShelfForm extends Form
 {
+    #[Locked]
     public ?int $id = null;
 
     public string $name = '';

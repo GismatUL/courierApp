@@ -30,6 +30,6 @@ class Hub extends Model
 
     public function deletionBlocker(): ?string
     {
-        return $this->zones()->exists() ? 'Bu filiala bağlı zonalar var.' : null;
+        return $this->zones()->exists() ? 'Bu filiala bağlı zonalar var. Əvəzinə Passiv edin.' : null;
     }
 }

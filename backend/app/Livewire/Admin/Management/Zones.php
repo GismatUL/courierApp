@@ -3,6 +3,7 @@
 namespace App\Livewire\Admin\Management;
 
 use App\Livewire\Admin\Concerns\ConfirmsDeletion;
+use App\Livewire\Admin\Concerns\HasAbilities;
 use App\Livewire\Admin\Concerns\ManagesFormModal;
 use App\Livewire\Admin\Concerns\Toasts;
 use App\Livewire\Admin\Management\Forms\ZoneForm;
@@ -18,7 +19,7 @@ use Livewire\WithPagination;
 #[Title('Zonalar')]
 class Zones extends Component
 {
-    use ConfirmsDeletion, ManagesFormModal, Toasts, WithPagination;
+    use ConfirmsDeletion, HasAbilities, ManagesFormModal, Toasts, WithPagination;
 
     public ZoneForm $form;
 
@@ -39,6 +40,11 @@ class Zones extends Component
     {
         $this->reset('hubId', 'search');
         $this->resetPage();
+    }
+
+    protected function abilities(): array
+    {
+        return ['create' => 'zone_create', 'update' => 'zone_edit', 'delete' => 'zone_delete'];
     }
 
     protected function deletableQuery(): Builder
