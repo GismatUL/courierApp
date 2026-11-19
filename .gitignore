@@ -1,7 +1,8 @@
-# This repository publishes only the frontend. Everything else at the root
+# This repository publishes only frontend/ and backend/. Everything else at the root
 # (CLAUDE.md, .claude/, the ai-engineering submodule, the Figma export) stays local.
 /*
 !/frontend/
+!/backend/
 !/.gitignore
 !/README.md
 
