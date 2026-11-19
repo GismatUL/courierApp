@@ -4,6 +4,7 @@ use App\Modules\Access\AccessServiceProvider;
 use App\Modules\Couriers\CouriersServiceProvider;
 use App\Modules\Merchants\MerchantsServiceProvider;
 use App\Modules\Network\NetworkServiceProvider;
+use App\Modules\Parcels\ParcelsServiceProvider;
 use App\Modules\Reports\ReportsServiceProvider;
 use App\Modules\Settings\SettingsServiceProvider;
 use App\Providers\AppServiceProvider;
@@ -16,5 +17,6 @@ return [
     MerchantsServiceProvider::class,
     NetworkServiceProvider::class,
     CouriersServiceProvider::class,
+    ParcelsServiceProvider::class,
     SettingsServiceProvider::class,
 ];

@@ -20,7 +20,6 @@ return [
             'invoice_read' => 'Oxumaq', 'invoice_status_update' => 'Status dəyişmək',
             'paid_invoice_read' => 'Ödənilmiş fakturalar', 'invoice_generate_menually' => 'Əl ilə yaratmaq',
         ]],
-        'parcel' => ['label' => 'Paket', 'keys' => Permissions::crud('parcel') + ['parcel_status_update' => 'Status dəyişmək']],
         'deliveryman_panel' => ['label' => 'Kuryer Paneli', 'keys' => [
             'deliveryman_panel_read' => 'Oxumaq', 'deliveryman_panel_parcel_return' => 'Paket qaytarmaq',
             'deliveryman_panel_change_deliveryman' => 'Kuryer dəyişmək', 'deliveryman_document_read' => 'Kuryer sənədi',
