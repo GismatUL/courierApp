@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Attributes\Fillable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Support\Facades\DB;
 
 /** Branch / warehouse where parcels are received and couriers are based (spec §7.1). */
 #[Fillable(['name', 'phone', 'address', 'latitude', 'longitude', 'contact_user_id', 'status'])]
@@ -31,6 +32,10 @@ class Hub extends Model
 
     public function deletionBlocker(): ?string
     {
-        return $this->zones()->exists() ? 'Bu filiala bağlı zonalar var. Əvəzinə Passiv edin.' : null;
+        return match (true) {
+            $this->zones()->exists() => 'Bu filiala bağlı zonalar var. Əvəzinə Passiv edin.',
+            DB::table('hub_merchant')->where('hub_id', $this->id)->exists() => 'Bu filial partnyorlara xidmət edir. Əvəzinə Passiv edin.',
+            default => null,
+        };
     }
 }

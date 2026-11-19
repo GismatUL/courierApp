@@ -31,6 +31,7 @@ return [
 
         ['label' => 'Partnyor İdarəetməsi', 'icon' => 'briefcase', 'items' => [
             ['label' => 'Partnyorlar', 'route' => 'admin.merchants.index', 'permission' => 'merchant_read'],
+            ['label' => 'Partnyor növləri', 'route' => 'admin.merchant-types.index', 'permission' => 'merchant_read'],
         ]],
 
         ['label' => 'İdarəetmə', 'icon' => 'settings-2', 'items' => [

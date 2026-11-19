@@ -3,6 +3,7 @@
 namespace App\Shared\Livewire\Concerns;
 
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Model;
 
 /**
  * Delete with a confirmation dialog (<x-admin.confirm-delete />). A record can refuse deletion
@@ -38,7 +39,13 @@ trait ConfirmsDeletion
             return;
         }
 
-        $record->delete();
+        $this->performDelete($record);
         $this->toast('Silindi.');
+    }
+
+    /** Override when deletion has side effects (e.g. removing stored files through a service). */
+    protected function performDelete(Model $record): void
+    {
+        $record->delete();
     }
 }

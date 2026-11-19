@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Attributes\Fillable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Support\Facades\DB;
 
 /** Delivery zone of a hub; its tariff matrix is the base price when a merchant has no own tariff (spec §7.3). */
 #[Fillable(['name', 'hub_id', 'note', 'status'])]
@@ -43,6 +44,7 @@ class Zone extends Model
         return match (true) {
             $this->regions()->exists() => 'Bu zonanın regionları var. Əvəzinə Passiv edin.',
             $this->shelves()->exists() => 'Bu zonaya bağlı qutular var. Əvəzinə Passiv edin.',
+            DB::table('merchant_delivery_charges')->where('zone_id', $this->id)->exists() => 'Bu zona partnyor tariflərində istifadə olunur. Əvəzinə Passiv edin.',
             default => null,
         };
     }

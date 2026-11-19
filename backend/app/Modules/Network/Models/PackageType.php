@@ -5,6 +5,7 @@ namespace App\Modules\Network\Models;
 use Illuminate\Database\Eloquent\Attributes\Fillable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Support\Facades\DB;
 
 /** Parcel size class by weight, e.g. Zərf 0–0.5 kg (spec §7.4). A null max_weight means no upper limit. */
 #[Fillable(['name', 'min_weight', 'max_weight', 'description', 'status'])]
@@ -31,6 +32,8 @@ class PackageType extends Model
 
     public function deletionBlocker(): ?string
     {
-        return $this->zoneTariffs()->exists() ? 'Bu paket növü zona tariflərində istifadə olunur. Əvəzinə Passiv edin.' : null;
+        return $this->zoneTariffs()->exists() || DB::table('merchant_delivery_charges')->where('package_type_id', $this->id)->exists()
+            ? 'Bu paket növü tariflərdə istifadə olunur. Əvəzinə Passiv edin.'
+            : null;
     }
 }

@@ -16,10 +16,6 @@ return [
         'bank_transaction' => ['label' => 'Bank əməliyyatları', 'keys' => ['bank_transaction_read' => 'Oxumaq']],
         'cash_received' => ['label' => 'Kuryerdən alınan nağd', 'keys' => Permissions::crud('cash_received_from_delivery_man')],
         'todo' => ['label' => 'Ediləcək işlər', 'keys' => Permissions::crud('todo')],
-        'merchant' => ['label' => 'Partnyor', 'keys' => Permissions::crud('merchant', ['read', 'create', 'update', 'delete', 'view'])],
-        'merchant_delivery_charge' => ['label' => 'Partnyor tarifləri', 'keys' => Permissions::crud('merchant_delivery_charge')],
-        'merchant_shop' => ['label' => 'Partnyor filialları', 'keys' => Permissions::crud('merchant_shop')],
-        'merchant_payment' => ['label' => 'Partnyor ödəniş hesabları', 'keys' => Permissions::crud('merchant_payment')],
         'invoice' => ['label' => 'Faktura', 'keys' => [
             'invoice_read' => 'Oxumaq', 'invoice_status_update' => 'Status dəyişmək',
             'paid_invoice_read' => 'Ödənilmiş fakturalar', 'invoice_generate_menually' => 'Əl ilə yaratmaq',
