@@ -2,8 +2,11 @@
 
 namespace Database\Seeders;
 
-use App\Models\Role;
-use App\Models\User;
+use App\Modules\Access\Database\Seeders\StaffSeeder;
+use App\Modules\Access\Models\Role;
+use App\Modules\Access\Models\User;
+use App\Modules\Network\Database\Seeders\NetworkSeeder;
+use App\Modules\Settings\Database\Seeders\CurrencySeeder;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -17,7 +20,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        $this->call([ReferenceDataSeeder::class, StaffSeeder::class]);
+        $this->call([NetworkSeeder::class, CurrencySeeder::class, StaffSeeder::class]);
 
         $email = env('ADMIN_EMAIL');
         $password = env('ADMIN_PASSWORD');

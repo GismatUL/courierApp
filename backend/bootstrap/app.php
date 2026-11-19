@@ -1,7 +1,7 @@
 <?php
 
-use App\Http\Middleware\EnsureUserIsActive;
-use App\Http\Middleware\SetLocale;
+use App\Modules\Access\Http\EnsureUserIsActive;
+use App\Shared\Http\SetLocale;
 use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Configuration\Exceptions;
 use Illuminate\Foundation\Configuration\Middleware;
