@@ -55,13 +55,14 @@ class Users extends Component
 
     protected function deletableQuery(): Builder
     {
-        return User::query();
+        return User::query()->where('panel_access', true);
     }
 
     public function render()
     {
         return view('access::users', [
             'users' => User::query()
+                ->where('panel_access', true)
                 ->with('role:id,name,slug')
                 ->when($this->name !== '', fn ($q) => $q->whereLike('name', "%{$this->name}%"))
                 ->when($this->email !== '', fn ($q) => $q->whereLike('email', "%{$this->email}%"))

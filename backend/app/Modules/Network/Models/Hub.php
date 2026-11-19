@@ -35,6 +35,7 @@ class Hub extends Model
         return match (true) {
             $this->zones()->exists() => 'Bu filiala bağlı zonalar var. Əvəzinə Passiv edin.',
             DB::table('hub_merchant')->where('hub_id', $this->id)->exists() => 'Bu filial partnyorlara xidmət edir. Əvəzinə Passiv edin.',
+            DB::table('delivery_men')->where('hub_id', $this->id)->exists() => 'Bu filiala bağlı kuryerlər var. Əvəzinə Passiv edin.',
             default => null,
         };
     }

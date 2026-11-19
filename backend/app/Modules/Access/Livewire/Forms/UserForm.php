@@ -55,7 +55,7 @@ class UserForm extends Form
             return;
         }
 
-        $user = User::with('hubs:id')->findOrFail($id);
+        $user = User::with('hubs:id')->where('panel_access', true)->findOrFail($id);
         $this->guardEditable($user);
 
         $this->id = $user->id;
@@ -107,7 +107,7 @@ class UserForm extends Form
     {
         $data = $this->validate();
         $editor = auth()->user();
-        $user = $this->id ? User::findOrFail($this->id) : new User;
+        $user = $this->id ? User::where('panel_access', true)->findOrFail($this->id) : new User;
         $role = Role::findOrFail($data['role_id']);
 
         if ($user->exists) {

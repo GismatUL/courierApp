@@ -30,7 +30,7 @@ class UserPermissions extends Component
     private function guard(User $user): void
     {
         Gate::authorize('permission_update');
-        abort_if($user->isSuperAdmin() || $user->is(auth()->user()), 403);
+        abort_if($user->isSuperAdmin() || $user->is(auth()->user()) || ! $user->panel_access, 403);
     }
 
     public function resetToRole(): void

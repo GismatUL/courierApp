@@ -29,7 +29,7 @@ class User extends Authenticatable
     use HasFactory, Notifiable;
 
     /** Mirrors the column defaults so new, unsaved models behave the same. */
-    protected $attributes = ['status' => true, 'permissions' => '[]'];
+    protected $attributes = ['status' => true, 'panel_access' => true, 'permissions' => '[]'];
 
     /**
      * @return array<string, string>
@@ -44,6 +44,7 @@ class User extends Authenticatable
             'permissions' => 'array',
             'salary' => 'decimal:2',
             'status' => 'boolean',
+            'panel_access' => 'boolean',
         ];
     }
 

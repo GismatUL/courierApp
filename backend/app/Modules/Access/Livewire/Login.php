@@ -32,7 +32,7 @@ class Login extends Component
         $this->ensureIsNotRateLimited();
 
         $active = Auth::attempt(
-            ['email' => $this->email, 'password' => $this->password, 'status' => true],
+            ['email' => $this->email, 'password' => $this->password, 'status' => true, 'panel_access' => true],
             $this->remember,
         );
 

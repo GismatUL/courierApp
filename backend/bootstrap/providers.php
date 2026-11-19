@@ -1,6 +1,7 @@
 <?php
 
 use App\Modules\Access\AccessServiceProvider;
+use App\Modules\Couriers\CouriersServiceProvider;
 use App\Modules\Merchants\MerchantsServiceProvider;
 use App\Modules\Network\NetworkServiceProvider;
 use App\Modules\Reports\ReportsServiceProvider;
@@ -14,5 +15,6 @@ return [
     AccessServiceProvider::class,
     MerchantsServiceProvider::class,
     NetworkServiceProvider::class,
+    CouriersServiceProvider::class,
     SettingsServiceProvider::class,
 ];
